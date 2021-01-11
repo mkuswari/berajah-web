@@ -11,10 +11,21 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// global routes
+Route::get('/', 'PageController@index');
+
+// routes for member
+Route::group(['prefix' => 'member'], function () {
+    Route::get('/home', 'HomeController@index')->name('home');
+});
+
+// routes for admin
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+});
