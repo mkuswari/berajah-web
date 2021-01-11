@@ -1,0 +1,84 @@
+/* import font from google */
+@import url("https://fonts.googleapis.com/css2?family=Andika+New+Basic:wght@400;700&family=Mulish:wght@500;600;700;800&display=swap");
+
+/* css begin here */
+body {
+    font-family: "Mulish", sans-serif;
+    font-weight: 500;
+}
+
+.navbar,
+.jumbotron,
+footer {
+    background-color: #0e49b5 !important;
+    border-radius: 0;
+}
+
+.bg-blue {
+    background-color: #0e49b5 !important;
+}
+
+.jumbotron h1 {
+    font-family: 'Andika New Basic', sans-serif;
+}
+
+.navbar-brand {
+    font-family: 'Andika New Basic', sans-serif;
+    font-weight: 700;
+}
+
+.nav-item {
+    margin-right: 15px;
+}
+
+.benefit-us img {
+    height: 125px;
+}
+
+.course-thumbnail {
+    height: 175px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.blogs-thumbnail {
+    height: 100%;
+    object-position: center;
+    object-fit: cover;
+}
+
+.login-area {
+    margin-top: 100px;
+}
+
+.course-detail {
+    margin-top: -115px;
+}
+
+.course-thumbnail-single {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.instructor-thumbnail {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.enroll-bar {
+    background-color: white;
+}
+
+.category-thumbnail {
+    /* width: 100%; */
+    height: 180px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.card .categories {
+    margin-top: 200px;
+}
