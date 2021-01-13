@@ -21,6 +21,12 @@
                 </a>
             </li>
             <li>
+                <a href="{{ route('instructors.index') }}" class="nav-link">
+                    <i class="fas fa-user"></i>
+                    <span>Kelola Instructor</span>
+                </a>
+            </li>
+            <li>
                 <a href="{{ route('categories.index') }}" class="nav-link">
                     <i class="fas fa-tags"></i>
                     <span>Kelola Kategori</span>
