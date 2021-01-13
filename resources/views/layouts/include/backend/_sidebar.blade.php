@@ -13,7 +13,13 @@
                     <span>Dashboard</span>
                 </a>
             </li>
-
+            <li class="menu-header">Menu</li>
+            <li>
+                <a href="{{ route('users.index') }}" class="nav-link">
+                    <i class="fas fa-users"></i>
+                    <span>Kelola Users</span>
+                </a>
+            </li>
         </ul>
     </aside>
 </div>

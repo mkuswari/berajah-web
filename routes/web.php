@@ -28,4 +28,5 @@ Route::group(['prefix' => 'member'], function () {
 // routes for admin
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+    Route::resource('/users', 'UserController');
 });
