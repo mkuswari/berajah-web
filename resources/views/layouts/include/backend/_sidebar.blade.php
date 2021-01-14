@@ -32,6 +32,12 @@
                     <span>Kelola Kategori</span>
                 </a>
             </li>
+            <li>
+                <a href="{{ route('courses.index') }}" class="nav-link">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Kelola Kelas</span>
+                </a>
+            </li>
         </ul>
     </aside>
 </div>
