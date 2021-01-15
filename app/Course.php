@@ -20,4 +20,9 @@ class Course extends Model
     {
         return $this->hasMany("App\Content");
     }
+
+    public function users()
+    {
+        return $this->belongsToMany("App\User");
+    }
 }

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Content;
 use App\Course;
+use App\Enrollment;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -32,11 +34,13 @@ class PageController extends Controller
     }
 
     // Detail pages
-    public function courseDetail($slug)
+    public function courseDetail($slug, $id)
     {
         $course = Course::where('slug', $slug)->first();
         $courses = Course::paginate(4);
-        return view("main.course_detail", compact("course", "courses"));
+        $contents = Content::where("course_id", $id)->get();
+        $enroll = Enrollment::where("course_id", $id);
+        return view("main.course_detail", compact("course", "courses", "contents", "enroll"));
     }
 
     public function categoryDetail($id)

@@ -74,36 +74,9 @@
                 <div class="col-sm-5">
                     <h3 class="font-weight-bold">Silabus Kelas</h3>
                     <hr>
-
-                    <div class="accordion" id="accordionExample">
-                        <div class="card shadow border-0 p-2 mt-2">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                                    data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    01 - Pendahuluan
-                                </button>
-                            </h2>
-                        </div>
-                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
-                            data-parent="#accordionExample">
-                            <div class="card shadow border-0 p-3 text-muted ml-4 my-2">
-                                Pengenalan HTML
-                            </div>
-                        </div>
-                        <div class="card shadow border-0 p-2 mt-2">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                                    data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
-                                    01 - Pendahuluan
-                                </button>
-                            </h2>
-                        </div>
-                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                            <div class="card shadow border-0 p-3 text-muted ml-4 my-2">
-                                Pengenalan HTML
-                            </div>
-                        </div>
-                    </div>
+                    @foreach ($contents as $content)
+                        <div class="panel p-3 bg-white shadow-sm">{{ $content->name }}</div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -124,7 +97,7 @@
                                     width="100%">
                                 <div class="card-body">
                                     <h5 class="card-title">
-                                        <a href="{{ route('kelas/detail', [$course->slug]) }}"
+                                        <a href="{{ route('kelas/detail', [$course->slug, $course->id]) }}"
                                             style="text-decoration: none;" class="text-dark">{{ $course->name }}</a>
                                     </h5>
                                     @if ($course->type == 'Premium')
@@ -134,7 +107,7 @@
                                     @endif
                                 </div>
                                 <div class="card-footer border-0 bg-white">
-                                    <a href="{{ route('kelas/detail', [$course->slug]) }}"
+                                    <a href="{{ route('kelas/detail', [$course->slug, $course->id]) }}"
                                         class="btn btn-primary btn-block rounded-0">Pelajari Kelas ini</a>
                                 </div>
                             </div>
@@ -172,7 +145,18 @@
                     </p>
                 </div>
                 <div class="col-sm-3 align-self-center">
-                    <button type="submit" class="btn btn-primary btn-block btn-lg rounded-0">Enroll Kelas</button>
+                    <form action="{{ route('enroll-kelas') }}" class="d-inline" method="POST">
+                        @csrf
+                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                        <input type="hidden" name="course_id" value="{{ $course->id }}">
+
+                        @if ($enroll->course_id = $course->id & ($enroll->user_id = Auth::user()->id))
+                            <a href="" class="btn btn-success btn-block btn-lg rounded-0">Lanjut Belajar</a>
+                        @else
+                            <button type="submit" class="btn btn-primary btn-block btn-lg rounded-0">Enroll Kelas</button>
+                        @endif
+
+                    </form>
                 </div>
             </div>
         </div>
