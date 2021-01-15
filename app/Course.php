@@ -15,4 +15,9 @@ class Course extends Model
     {
         return $this->belongsTo("App\Instructor", "instructor_id");
     }
+
+    public function contents()
+    {
+        return $this->hasMany("App\Content");
+    }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Content;
 use App\Course;
 use App\Instructor;
 use Illuminate\Http\Request;
@@ -72,7 +73,8 @@ class CourseController extends Controller
     public function show($id)
     {
         $course = Course::findOrFail($id);
-        return view("backend.courses.show", compact("course"));
+        $contents = Content::where("course_id", $id)->get();
+        return view("backend.courses.show", compact("course", "contents"));
     }
 
     /**

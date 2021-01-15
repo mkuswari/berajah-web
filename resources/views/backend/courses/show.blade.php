@@ -28,7 +28,7 @@
                             <b>Slug</b>
                             <p>{{ $course->slug }}</p>
                             <b>Deskripsi Kelas</b>
-                            <p>{{ $course->description }}</p>
+                            <p>{!! $course->description !!}</p>
                             <b>Level</b>
                             <p>{{ $course->level }}</p>
                             <b>Tipe Kelas</b>
@@ -68,24 +68,58 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="header d-flex justify-content-between">
-                                        <h4>Silabus Kelas</h4>
-                                        <a href="" class="btn btn-primary">Tambah Silabus</a>
+                                        <h4>Materi Kelas</h4>
+                                        <a href="{{ route('courses.add-content', [$course->id]) }}"
+                                            class="btn btn-primary">Tambah
+                                            Materi</a>
                                     </div>
                                     <hr>
+                                    {{-- message --}}
+                                    @if (session('success'))
+                                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                            {{ session('success') }}.
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                    @endif
+                                    {{-- end of message --}}
                                     <div class="table-responsive">
                                         <table class="table table-striped" id="table-1">
                                             <thead>
                                                 <tr>
                                                     <th width="15">No.</th>
-                                                    <th width="300">Nama Section</th>
-                                                    <th>Nama Kelas</th>
-                                                    <th>Level</th>
-                                                    <th>Harga</th>
-                                                    <th>Status</th>
+                                                    <th width="300">Judul Materi</th>
+                                                    <th>Slug</th>
+                                                    <th>Catatn Instruktur</th>
                                                     <th>Aksi</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                @foreach ($contents as $content)
+                                                    <tr>
+                                                        <td>{{ $loop->iteration }}</td>
+                                                        <td>{{ $content->name }}</td>
+                                                        <td>{{ $content->slug }}</td>
+                                                        <td>{!! $content->instructor_note !!}</td>
+                                                        <td>
+                                                            <a href="{{ route('courses.edit-content', [$content->course_id, $content->id]) }}"
+                                                                class="btn btn-warning btn-icon">
+                                                                <i class="fas fa-pencil-alt"></i>
+                                                            </a>
+                                                            <form
+                                                                action="{{ route('courses.delete-content', [$course->id, $content->id]) }}"
+                                                                class="d-inline" method="POST"
+                                                                onsubmit="return confirm('Hapus kategori ini dari sistem?')">
+                                                                @csrf
+                                                                @method("DELETE")
+                                                                <button type="submit" class="btn btn-danger btn-icon">
+                                                                    <i class="fas fa-trash"></i>
+                                                                </button>
+                                                            </form>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>
