@@ -12,7 +12,13 @@
     <ul class="navbar-nav navbar-right">
         <li class="dropdown"><a href="#" data-toggle="dropdown"
                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                <img alt="image" src="{{ asset('backend/img/avatar/avatar-1.png') }}" class="rounded-circle mr-1">
+                @if (Auth::user()->avatar)
+                    <img alt="image" src="{{ asset('storage/' . Auth::user()->avatar) }}" class="rounded-circle mr-1">
+                @else
+                    <img alt="image"
+                        src="https://ui-avatars.com/api/?name={{ Auth::user()->name }}&background=random&color=fff"
+                        class="rounded-circle mr-1">
+                @endif
                 <div class="d-sm-none d-lg-inline-block">Hi, {{ Auth::user()->name }}</div>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
