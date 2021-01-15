@@ -19,6 +19,11 @@ Auth::routes();
 
 // global routes
 Route::get('/', 'PageController@index');
+Route::get('/kelas', 'PageController@courseCatalogs')->name('kelas');
+Route::get('/kelas/detail/{slug}', 'PageController@courseDetail')->name('kelas/detail');
+Route::get('/kategori', 'PageController@categoryCatalogs')->name('kategori');
+Route::get('/kategori/detail/{category}', 'PageController@categoryDetail')->name('kategori/detail');
+Route::get('/blog', 'PageController@blogCatalogs')->name('blog');
 
 // routes for member
 Route::group(['prefix' => 'member'], function () {

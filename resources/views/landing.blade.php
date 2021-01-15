@@ -68,65 +68,36 @@
         <div class="container">
             <h3 class="font-weight-bold text-center">Kelas Terbaru kami</h3>
             <div class="row mt-3">
-                <div class="col-sm-3">
-                    <div class="card shadow-sm border-0 mt-3">
-                        <img src="global/images/courses/laravel.jpg" class="course-thumbnail" width="100%">
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                <a href="">Belajar dasar-dasar laravel dengan mudah</a>
-                            </h5>
-                            <span class="badge badge-success badge-pill px-3">Premium</span>
+                @if ($courses)
+                    @foreach ($courses as $course)
+                        <div class="col-sm-3">
+                            <div class="card shadow-sm border-0 mt-3">
+                                <img src="{{ asset('storage/' . $course->thumbnail) }}" class="course-thumbnail"
+                                    width="100%">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <a href="{{ route('kelas/detail', [$course->slug]) }}"
+                                            style="text-decoration: none;" class="text-dark">{{ $course->name }}</a>
+                                    </h5>
+                                    @if ($course->type == 'Premium')
+                                        <span class="badge badge-success badge-pill px-3">Premium</span>
+                                    @else
+                                        <span class="badge badge-warning badge-pill px-3 text-white">Free</span>
+                                    @endif
+                                </div>
+                                <div class="card-footer border-0 bg-white">
+                                    <a href="{{ route('kelas/detail', [$course->slug]) }}"
+                                        class="btn btn-primary btn-block rounded-0">Pelajari Kelas ini</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-footer border-0 bg-white">
-                            <a href="" class="btn btn-primary btn-block rounded-0">Pelajari Kelas ini</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="card shadow-sm border-0 mt-3">
-                        <img src="global/images/courses/codeigniter.jpg" class="course-thumbnail" width="100%">
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                <a href="">Belajar dasar-dasar laravel dengan mudah</a>
-                            </h5>
-                            <span class="badge badge-success badge-pill px-3">Premium</span>
-                        </div>
-                        <div class="card-footer border-0 bg-white">
-                            <a href="" class="btn btn-primary btn-block rounded-0">Pelajari Kelas ini</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="card shadow-sm border-0 mt-3">
-                        <img src="global/images/courses/nodejs.png" class="course-thumbnail" width="100%">
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                <a href="">Belajar dasar-dasar laravel dengan mudah</a>
-                            </h5>
-                            <span class="badge badge-success badge-pill px-3">Premium</span>
-                        </div>
-                        <div class="card-footer border-0 bg-white">
-                            <a href="" class="btn btn-primary btn-block rounded-0">Pelajari Kelas ini</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="card shadow-sm border-0 mt-3">
-                        <img src="global/images/courses/laravel.jpg" class="course-thumbnail" width="100%">
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                <a href="">Belajar dasar-dasar laravel dengan mudah</a>
-                            </h5>
-                            <span class="badge badge-success badge-pill px-3">Premium</span>
-                        </div>
-                        <div class="card-footer border-0 bg-white">
-                            <a href="" class="btn btn-primary btn-block rounded-0">Pelajari Kelas ini</a>
-                        </div>
-                    </div>
-                </div>
+                    @endforeach
+                @else
+                    <div class="alert alert-danger">Maaf, belum ada kelas tersedia</div>
+                @endif
             </div>
             <div class="text-center mt-4">
-                <a href="">Lihat Semua Kelas</a>
+                <a href="{{ route('kelas') }}">Lihat Semua Kelas</a>
             </div>
         </div>
     </section>

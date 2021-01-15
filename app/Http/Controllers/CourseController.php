@@ -47,7 +47,10 @@ class CourseController extends Controller
             $fileUpload = $request->file("thumbnail")->store("course_thumbnails", "public");
             $course->thumbnail = $fileUpload;
         }
-        $course->trailer_url = $request->get("trailer_url");
+        preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $request->get("trailer_url"), $match);
+        $youtubeVideoId = $match[1];
+        $course->trailer_url = $youtubeVideoId;
+        // $course->trailer_url = $request->get("trailer_url");
         $course->description = $request->get("description");
         $course->level = $request->get("level");
         $course->type = $request->get("type");
@@ -105,7 +108,9 @@ class CourseController extends Controller
             $newThumbnail = $request->file("image")->store("course_thumbnails", "public");
             $course->image = $newThumbnail;
         }
-        $course->trailer_url = $request->get("trailer_url");
+        preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $request->get("trailer_url"), $match);
+        $youtubeVideoId = $match[1];
+        $course->trailer_url = $youtubeVideoId;
         $course->description = $request->get("description");
         $course->level = $request->get("level");
         $course->type = $request->get("type");

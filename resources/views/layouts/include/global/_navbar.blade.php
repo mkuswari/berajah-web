@@ -1,5 +1,5 @@
 <!-- navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark py-3">
+<nav class="navbar navbar-expand-lg navbar-dark py-3 sticky-top">
     <div class="container">
         <a class="navbar-brand" href="#">Lumbung Ilmu</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -9,16 +9,16 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Kelas</a>
+                    <a class="nav-link" href="{{ route('kelas') }}">Kelas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Kategori</a>
+                    <a class="nav-link" href="{{ route('kategori') }}">Kategori</a>
                 </li>
                 <div class="nav-item">
-                    <a href="" class="nav-link">Blogs</a>
+                    <a href="{{ route('blog') }}" class="nav-link">Blogs</a>
                 </div>
                 <div class="nav-item">
                     <a href="" class="nav-link">Tentang</a>

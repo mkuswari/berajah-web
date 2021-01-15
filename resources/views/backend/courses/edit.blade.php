@@ -60,7 +60,8 @@
                                             <label for="trailer_url" class="col-sm-2 col-form-label">URL Trailer</label>
                                             <div class="col-sm-10">
                                                 <input type="text" class="form-control" name="trailer_url" id="trailer_url"
-                                                    placeholder="Url Trailer" value="{{ $course->trailer_url }}">
+                                                    placeholder="Url Trailer"
+                                                    value="https://youtu.be/{{ $course->trailer_url }}">
                                             </div>
                                         </div>
                                         <div class="form-group row">
