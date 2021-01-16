@@ -19,18 +19,18 @@ class PageController extends Controller
     public function courseCatalogs()
     {
         $courses = Course::paginate(16);
-        return view("main.course_catalogs", compact("courses"));
+        return view("pages.course_catalogs", compact("courses"));
     }
 
     public function categoryCatalogs()
     {
         $categories = Category::paginate(16);
-        return view("main.category_catalogs", compact("categories"));
+        return view("pages.category_catalogs", compact("categories"));
     }
 
     public function blogCatalogs()
     {
-        return view("main.blog_catalogs");
+        return view("pages.blog_catalogs");
     }
 
     // Detail pages
@@ -39,14 +39,14 @@ class PageController extends Controller
         $course = Course::where('slug', $slug)->first();
         $courses = Course::paginate(4);
         $contents = Content::where("course_id", $id)->get();
-        $enroll = Enrollment::where("course_id", $id);
-        return view("main.course_detail", compact("course", "courses", "contents", "enroll"));
+        $enroll = Enrollment::all();
+        return view("pages.course_detail", compact("course", "courses", "contents", "enroll"));
     }
 
     public function categoryDetail($id)
     {
         $category = Category::findOrFail($id);
         $courses = Course::where('category_id', $id)->get();
-        return view("main.category_detail", compact("category", "courses"));
+        return view("pages.category_detail", compact("category", "courses"));
     }
 }

@@ -21,6 +21,10 @@ Route::get('/kategori', 'PageController@categoryCatalogs')->name('kategori');
 Route::get('/kategori/detail/{category}', 'PageController@categoryDetail')->name('kategori/detail');
 Route::get('/blog', 'PageController@blogCatalogs')->name('blog');
 
+// main routes
+Route::post('/enroll-kelas/{course}', 'MainController@enrollCourse')->name('enroll-kelas');
+Route::get('/enroll-success', 'MainController@showEnrollSuuccessPage')->name('enroll-success');
+
 // routes for member
 Route::group(['prefix' => 'member'], function () {
     Route::get('/home', 'HomeController@index')->name('home');

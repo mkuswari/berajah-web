@@ -1,31 +1,31 @@
-@extends('layouts.frontend')
+@extends('layouts.global')
 
 @section('title')
-    Home
+    Dashboard Akun
 @endsection
 
 @section('content')
-    <!-- Begin Page Content -->
-    <div class="container-fluid">
-
-        <div class="row">
-            <div class="col-12">
-                <h1 class="h3 mb-4 text-gray-800">Overview Saya</h1>
-                <div class="jumbotron jumbotron-fluid bg-blue-global text-white rounded text-center">
-                    <div class="container">
-                      <h1 class="display-4">Selamat datang, {{ Auth::user()->name }}</h1>
-                      <p class="lead">"Jangan lupa berdo'a sebelum mulai belajar."</p>
-                    </div>
-                  </div>
-            </div>
+    <div class="jumbotron jumbotron-fluid text-white">
+        <div class="container">
+            <h2>Hai, {{ Auth::user()->name }}</h2>
+            <p>Jangan lupa Berdo'a sebelum belajar.</p>
         </div>
-        <div class="row">
-            <div class="col-12">
-                <h1 class="h3 mb-4 text-gray-800">Kelas Saya</h1>
-                <hr>
-            </div>
-        </div>
-
     </div>
-    <!-- /.container-fluid -->
+
+    {{-- enrolled course --}}
+    <section class="enrolled-course py-3">
+        <div class="container">
+            <h3 class="font-weight-bold">Kelas yang saya ambil</h3>
+            <hr>
+        </div>
+    </section>
+
+    {{-- challenge takes --}}
+    <section class="challenge-take py-3 bg-light">
+        <div class="container">
+            <h3 class="font-weight-bold">Challenge yang saya ikuti</h3>
+            <hr>
+        </div>
+    </section>
+
 @endsection
