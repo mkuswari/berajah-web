@@ -38,6 +38,12 @@
                     <span>Kelola Kelas</span>
                 </a>
             </li>
+            <li>
+                <a href="{{ route('enrolls.index') }}" class="nav-link">
+                    <i class="fas fa-clipboard-check"></i>
+                    <span>Kelola Enroll Kelas</span>
+                </a>
+            </li>
         </ul>
     </aside>
 </div>

@@ -17,6 +17,7 @@ class CreateEnrollmentsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger("user_id")->unsigned()->nullable();
             $table->bigInteger("course_id")->unsigned()->nullable();
+            $table->enum("status", ["On Progress", "Selesai"])->nullable();
             $table->timestamps();
 
             $table->foreign("user_id")->references("id")->on("users");

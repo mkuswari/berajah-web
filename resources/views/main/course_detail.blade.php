@@ -76,9 +76,9 @@
                     <hr>
                     <ul class="list-group">
                         @foreach ($contents as $content)
-                        <li class="list-group-item">{{ $loop->iteration }} | {{ $content->name }}</li>
+                            <li class="list-group-item">{{ $loop->iteration }} | {{ $content->name }}</li>
                         @endforeach
-                      </ul>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -147,12 +147,11 @@
                     </p>
                 </div>
                 <div class="col-sm-3 align-self-center">
-                    <form action="{{ route('enroll-kelas') }}" class="d-inline" method="POST">
-                        @csrf
-                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                        <input type="hidden" name="course_id" value="{{ $course->id }}">
-                        <button type="submit" class="btn btn-primary btn-block btn-lg rounded-0">Enroll Kelas</button>
-                    </form>
+                    @if ($course->type == 'Premium')
+                        <a href="" class="btn btn-warning btn-ls btn-block rounded-0 text-white">Beli Kelas</a>
+                    @else
+                        <a href="" class="btn btn-primary btn-lg btn-block rounded-0">Pelajari Kelas</a>
+                    @endif
                 </div>
             </div>
         </div>

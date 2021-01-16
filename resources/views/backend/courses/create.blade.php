@@ -26,7 +26,7 @@
                                             <label for="name" class="col-sm-2 col-form-label">Nama Kelas</label>
                                             <div class="col-sm-10">
                                                 <input type="text" class="form-control" name="name" id="name"
-                                                    placeholder="Nama Lengkap...">
+                                                    placeholder="Nama Kelas...">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -71,7 +71,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="form-group row">
+                                        <div class="form-group row" id="form-harga">
                                             <label for="price" class="col-sm-2 col-form-label">Harga Kelas</label>
                                             <div class="col-sm-10">
                                                 <input type="number" class="form-control" name="price" id="price"
@@ -144,4 +144,20 @@
 @push('scripts')
     <script src="{{ asset('backend/modules/summernote/summernote-bs4.js') }}"></script>
     <script src="{{ asset('backend/modules/select2/dist/js/select2.full.min.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('#form-harga').hide();
+            $('#type').change(function() {
+                if ($(this).val() == 'Free') {
+                    $('#form-harga').hide();
+                } else {
+                    $('#form-harga').show();
+                }
+
+                $('#form-harga').val('');
+
+            });
+        });
+
+    </script>
 @endpush

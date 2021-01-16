@@ -21,9 +21,6 @@ Route::get('/kategori', 'PageController@categoryCatalogs')->name('kategori');
 Route::get('/kategori/detail/{category}', 'PageController@categoryDetail')->name('kategori/detail');
 Route::get('/blog', 'PageController@blogCatalogs')->name('blog');
 
-// enrollment routes
-Route::post('/enroll-kelas', 'EnrollmentController@newEnroll')->name('enroll-kelas');
-
 // routes for member
 Route::group(['prefix' => 'member'], function () {
     Route::get('/home', 'HomeController@index')->name('home');
@@ -47,4 +44,6 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/courses/{course_id}/content/{id}/edit-content', 'ContentController@editContent')->name('courses.edit-content');
     Route::put('/courses/{id}/update-content', 'ContentController@updateContent')->name('courses.update-content');
     Route::delete('/courses/{course_id}/content/{id}/delete-content', 'ContentController@deleteContent')->name('courses.delete-content');
+    // enrollments routes
+    Route::resource('/enrolls', 'EnrollmentController');
 });

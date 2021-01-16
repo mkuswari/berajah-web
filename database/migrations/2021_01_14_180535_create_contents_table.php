@@ -18,7 +18,7 @@ class CreateContentsTable extends Migration
             $table->string('name');
             $table->string('slug');
             $table->string('video_id');
-            $table->text('instructor_note');
+            $table->text('instructor_note')->nullable();
             $table->bigInteger('course_id')->unsigned()->nullable();
             $table->timestamps();
 

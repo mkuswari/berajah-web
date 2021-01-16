@@ -34,7 +34,7 @@
                 @if ($courses)
                     @foreach ($courses as $course)
                         <div class="col-sm-3">
-                            <div class="card shadow-sm border-0 mt-3">
+                            <div class="card shadow border-0 mt-3">
                                 <img src="{{ asset('storage/' . $course->thumbnail) }}" class="course-thumbnail"
                                     width="100%">
                                 <div class="card-body">
