@@ -25,8 +25,8 @@ class CreateCoursesTable extends Migration
             $table->float('price')->nullable()->default(0);
             $table->string('prerequisite')->nullable();
             $table->enum('status', ['Published', 'Archived']);
-            $table->bigInteger('category_id')->unsigned();
-            $table->bigInteger('instructor_id')->unsigned();
+            $table->bigInteger('category_id')->unsigned()->nullable();
+            $table->bigInteger('instructor_id')->unsigned()->nullable();
             $table->timestamps();
 
             $table->foreign("category_id")->references("id")->on("categories");

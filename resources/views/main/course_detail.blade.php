@@ -72,11 +72,13 @@
                     </div>
                 </div>
                 <div class="col-sm-5">
-                    <h3 class="font-weight-bold">Silabus Kelas</h3>
+                    <h3 class="font-weight-bold">Materi Kelas</h3>
                     <hr>
-                    @foreach ($contents as $content)
-                        <div class="panel p-3 bg-white shadow-sm">{{ $content->name }}</div>
-                    @endforeach
+                    <ul class="list-group">
+                        @foreach ($contents as $content)
+                        <li class="list-group-item">{{ $loop->iteration }} | {{ $content->name }}</li>
+                        @endforeach
+                      </ul>
                 </div>
             </div>
         </div>
@@ -149,13 +151,7 @@
                         @csrf
                         <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                         <input type="hidden" name="course_id" value="{{ $course->id }}">
-
-                        @if ($enroll->course_id = $course->id & ($enroll->user_id = Auth::user()->id))
-                            <a href="" class="btn btn-success btn-block btn-lg rounded-0">Lanjut Belajar</a>
-                        @else
-                            <button type="submit" class="btn btn-primary btn-block btn-lg rounded-0">Enroll Kelas</button>
-                        @endif
-
+                        <button type="submit" class="btn btn-primary btn-block btn-lg rounded-0">Enroll Kelas</button>
                     </form>
                 </div>
             </div>

@@ -19,7 +19,7 @@ class CreateContentsTable extends Migration
             $table->string('slug');
             $table->string('video_id');
             $table->text('instructor_note');
-            $table->bigInteger('course_id')->unsigned();
+            $table->bigInteger('course_id')->unsigned()->nullable();
             $table->timestamps();
 
             $table->foreign('course_id')->references('id')->on('courses');

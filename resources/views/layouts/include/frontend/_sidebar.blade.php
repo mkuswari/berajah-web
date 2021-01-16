@@ -1,5 +1,5 @@
 <!-- Sidebar -->
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav bg-blue-global sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -17,6 +17,33 @@
         <a class="nav-link" href="index.html">
             <i class="fas fa-fw fa-home"></i>
             <span>Home</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="index.html">
+            <i class="fas fa-fw fa-brain"></i>
+            <span>Kelas Saya</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="index.html">
+            <i class="fas fa-fw fa-brain"></i>
+            <span>Challenge Saya</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="index.html">
+            <i class="fas fa-fw fa-graduation-cap"></i>
+            <span>Katalog kelas</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="index.html">
+            <i class="fas fa-fw fa-user-cog"></i>
+            <span>Pengaturan Akun</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="index.html">
+            <i class="fas fa-fw fa-sign-out-alt"></i>
+            <span>Keluar</span></a>
     </li>
 
 
