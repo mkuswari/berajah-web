@@ -40,7 +40,15 @@ class PageController extends Controller
         $course = Course::where('slug', $slug)->first();
         $courses = Course::paginate(4);
         $contents = Content::where("course_id", $course->id)->get();
-        $enroll = Enrollment::where("course_id", $course->id)->get();
+        $enroll = Enrollment::all();
+
+        // if (Auth::user()->id) {
+        //     if ($enroll->user_id == Auth::user()->id && $enroll->course_id == $course->id) {
+
+        //     }
+        // }
+
+        // $enroll = Enrollment::where("course_id", $course->id)->get();
         return view("pages.course_detail", compact("course", "courses", "contents", "enroll"));
     }
 

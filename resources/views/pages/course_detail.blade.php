@@ -147,22 +147,15 @@
                     </p>
                 </div>
                 <div class="col-sm-3 align-self-center">
-                    {{-- @auth
-                    @if ($enroll[0]->course_id = $course->id && ($enroll[0]->user_id = Auth::user()->id))
-                        <a href="" class="btn btn-primary btn-block btn-lg rounded-0">Lanjutkan Belajar</a>
-                    @endif
-                    @else
-                    @if ($course->type == 'Premium')
-                        <a href="" class="btn btn-warning btn-lg btn-block rounded-0 text-white">Beli Kelas</a>
+                    {{-- @if ($enroll->user_id = Auth::user()->id && ($enroll->course_id = $course->id))
+                        <a href="" class="btn btn-success btn-lg btn-block rounded-0">Lanjutkan Belajar</a>
                         @else
-                        <form action="{{ route('enroll-kelas', [$course->id]) }}" method="POST" class="d-inline">
-                            @csrf
-                            <button type="submit" class="btn btn-primary btn-lg btn-block rounded-0">Ikuti Kelas
-                                ini</button>
-                        </form>
-                    @endif
-                    @endauth --}}
-
+                        @if ($course->type == 'Premium')
+                            <a href="" class="btn btn-warning btn-lg btn-block rounded-0">Beli Kelas</a>
+                            @else
+                            <a href="" class="btn btn-primary btn-lg btn-block rounded-0">Enroll Kelas</a>
+                        @endif
+                    @endif --}}
                 </div>
             </div>
         </div>
