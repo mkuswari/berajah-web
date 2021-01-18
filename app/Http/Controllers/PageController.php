@@ -35,19 +35,19 @@ class PageController extends Controller
     }
 
     // Detail pages
-    public function courseDetail($slug, $id)
+    public function courseDetail($slug)
     {
         $course = Course::where('slug', $slug)->first();
         $courses = Course::paginate(4);
-        $contents = Content::where("course_id", $id)->get();
-        $enroll = Enrollment::where("course_id", $id)->get();
+        $contents = Content::where("course_id", $course->id)->get();
+        $enroll = Enrollment::where("course_id", $course->id)->get();
         return view("pages.course_detail", compact("course", "courses", "contents", "enroll"));
     }
 
-    public function categoryDetail($id)
+    public function categoryDetail($slug)
     {
-        $category = Category::findOrFail($id);
-        $courses = Course::where('category_id', $id)->get();
+        $category = Category::where("slug", $slug)->first();
+        $courses = Course::where('category_id', $category->id)->get();
         return view("pages.category_detail", compact("category", "courses"));
     }
 }

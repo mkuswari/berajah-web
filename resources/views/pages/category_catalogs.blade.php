@@ -21,7 +21,7 @@
                 @if ($categories)
                     @foreach ($categories as $category)
                         <div class="col-sm-3">
-                            <a href="{{ route('kategori/detail', [$category->id]) }}" style="text-decoration: none;"
+                            <a href="{{ route('kategori/', [$category->slug]) }}" style="text-decoration: none;"
                                 class="text-dark">
                                 <div class="card shadow mt-4 border-0">
                                     <img src="{{ asset('storage/' . $category->image) }}"

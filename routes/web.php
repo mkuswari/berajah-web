@@ -16,9 +16,9 @@ Auth::routes();
 // global routes
 Route::get('/', 'PageController@index');
 Route::get('/kelas', 'PageController@courseCatalogs')->name('kelas');
-Route::get('/kelas/detail/{slug}/{id}', 'PageController@courseDetail')->name('kelas/detail');
+Route::get('/kelas/{slug}', 'PageController@courseDetail')->name('kelas/');
 Route::get('/kategori', 'PageController@categoryCatalogs')->name('kategori');
-Route::get('/kategori/detail/{category}', 'PageController@categoryDetail')->name('kategori/detail');
+Route::get('/kategori/{slug}', 'PageController@categoryDetail')->name('kategori/');
 Route::get('/blog', 'PageController@blogCatalogs')->name('blog');
 
 // main routes
@@ -50,4 +50,5 @@ Route::group(['prefix' => 'admin'], function () {
     Route::delete('/courses/{course_id}/content/{id}/delete-content', 'ContentController@deleteContent')->name('courses.delete-content');
     // enrollments routes
     Route::resource('/enrolls', 'EnrollmentController');
+    Route::resource('/articles', 'ArticleController');
 });

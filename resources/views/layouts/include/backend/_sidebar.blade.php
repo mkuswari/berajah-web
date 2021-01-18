@@ -44,6 +44,12 @@
                     <span>Kelola Enroll Kelas</span>
                 </a>
             </li>
+            <li>
+                <a href="{{ route('articles.index') }}" class="nav-link">
+                    <i class="fas fa-file"></i>
+                    <span>Kelola Artikel</span>
+                </a>
+            </li>
         </ul>
     </aside>
 </div>

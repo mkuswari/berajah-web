@@ -76,8 +76,8 @@
                                     width="100%">
                                 <div class="card-body">
                                     <h5 class="card-title">
-                                        <a href="{{ route('kelas/detail', [$course->slug, $course->id]) }}"
-                                            style="text-decoration: none;" class="text-dark">{{ $course->name }}</a>
+                                        <a href="{{ route('kelas/', [$course->slug]) }}" style="text-decoration: none;"
+                                            class="text-dark">{{ $course->name }}</a>
                                     </h5>
                                     @if ($course->type == 'Premium')
                                         <span class="badge badge-success badge-pill px-3">Premium</span>
@@ -86,7 +86,7 @@
                                     @endif
                                 </div>
                                 <div class="card-footer border-0 bg-white">
-                                    <a href="{{ route('kelas/detail', [$course->slug, $course->id]) }}"
+                                    <a href="{{ route('kelas/', [$course->slug]) }}"
                                         class="btn btn-primary btn-block rounded-0">Pelajari Kelas ini</a>
                                 </div>
                             </div>
