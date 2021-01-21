@@ -17,7 +17,7 @@ class MainController extends Controller
         return redirect()->route("enroll-success");
     }
 
-    public function  showEnrollSuuccessPage()
+    public function showEnrollSuuccessPage()
     {
         return view("main.enroll_success");
     }

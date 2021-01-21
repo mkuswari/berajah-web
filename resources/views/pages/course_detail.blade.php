@@ -147,15 +147,31 @@
                     </p>
                 </div>
                 <div class="col-sm-3 align-self-center">
-                    {{-- @if ($enroll->user_id = Auth::user()->id && ($enroll->course_id = $course->id))
-                        <a href="" class="btn btn-success btn-lg btn-block rounded-0">Lanjutkan Belajar</a>
+                    @auth
+                        @if ($enroll && ($enroll['user_id'] = Auth::user()->id))
+                            <a href="" class="btn btn-success btn-lg btn-block btn-lg rounded-0">Lanjutkan Belajar</a>
                         @else
-                        @if ($course->type == 'Premium')
-                            <a href="" class="btn btn-warning btn-lg btn-block rounded-0">Beli Kelas</a>
+                            @if ($course->type == 'Premium')
+                                <a href="" class="btn btn-primary btn-lg btn-block rounded-0">Beli Kelas</a>
                             @else
-                            <a href="" class="btn btn-primary btn-lg btn-block rounded-0">Enroll Kelas</a>
+                                <form action="{{ route('enroll-kelas', [$course->id]) }}" method="POST" class="d-inline">
+                                    @csrf
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block rounded-0">Enroll
+                                        Kelas</button>
+                                </form>
+                            @endif
                         @endif
-                    @endif --}}
+                    @else
+                        @if ($course->type == 'Premium')
+                            <a href="" class="btn btn-primary btn-lg btn-block rounded-0">Beli Kelas</a>
+                        @else
+                            <form action="{{ route('enroll-kelas', [$course->id]) }}" method="POST" class="d-inline">
+                                @csrf
+                                <button type="submit" class="btn btn-primary btn-lg btn-block rounded-0">Enroll
+                                    Kelas</button>
+                            </form>
+                        @endif
+                    @endauth
                 </div>
             </div>
         </div>

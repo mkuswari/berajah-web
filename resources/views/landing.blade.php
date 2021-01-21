@@ -108,78 +108,18 @@
         <div class="container">
             <h3 class="font-weight-bold text-center">Artikel Terbaru</h3>
             <div class="row mt-3">
-                <div class="col-sm-6 mt-3">
-                    <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row no-gutters">
-                            <div class="col-md-4">
-                                <img src="global/images/courses/codeigniter.jpg" class="card-img blogs-thumbnail" alt="...">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
-                                    <p class="small">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
-                                        quae illum porro vel magni consequatur voluptates qui libero. Totam asperiores
-                                        ducimus voluptas sunt odit!....</p>
-                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                </div>
+                @foreach ($articles as $article)
+                    <div class="col-sm-6 mt-3">
+                        <div class="card shadow">
+                            <img src="{{ asset('storage/' . $article->thumbnail) }}"
+                                style="width: 100%; height: 300px; object-fit: cover; object-position: center;">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $article->title }}</h5>
+                                <p class="card-text">Content</p>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-6 mt-3">
-                    <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row no-gutters">
-                            <div class="col-md-4">
-                                <img src="global/images/courses/codeigniter.jpg" class="card-img blogs-thumbnail" alt="...">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
-                                    <p class="small">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
-                                        quae illum porro vel magni consequatur voluptates qui libero. Totam asperiores
-                                        ducimus voluptas sunt odit!....</p>
-                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 mt-3">
-                    <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row no-gutters">
-                            <div class="col-md-4">
-                                <img src="global/images/courses/codeigniter.jpg" class="card-img blogs-thumbnail" alt="...">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
-                                    <p class="small">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
-                                        quae illum porro vel magni consequatur voluptates qui libero. Totam asperiores
-                                        ducimus voluptas sunt odit!....</p>
-                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 mt-3">
-                    <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row no-gutters">
-                            <div class="col-md-4">
-                                <img src="global/images/courses/codeigniter.jpg" class="card-img blogs-thumbnail" alt="...">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
-                                    <p class="small">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
-                                        quae illum porro vel magni consequatur voluptates qui libero. Totam asperiores
-                                        ducimus voluptas sunt odit!....</p>
-                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <div class="text-center mt-4">
                 <a href="">Lihat semua Artikel</a>

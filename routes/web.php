@@ -25,6 +25,10 @@ Route::get('/blog', 'PageController@blogCatalogs')->name('blog');
 Route::post('/enroll-kelas/{course}', 'MainController@enrollCourse')->name('enroll-kelas');
 Route::get('/enroll-success', 'MainController@showEnrollSuuccessPage')->name('enroll-success');
 
+
+// profile routes
+Route::get('/setting/profile', 'ProfileController@showProfile');
+
 // routes for member
 Route::group(['prefix' => 'member'], function () {
     Route::get('/home', 'HomeController@index')->name('home');
