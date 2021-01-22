@@ -75,10 +75,10 @@
                                 <img src="{{ asset('storage/' . $course->thumbnail) }}" class="course-thumbnail"
                                     width="100%">
                                 <div class="card-body">
-                                    <h5 class="card-title">
+                                    <h6 class="card-title">
                                         <a href="{{ route('kelas/', [$course->slug]) }}" style="text-decoration: none;"
-                                            class="text-dark">{{ $course->name }}</a>
-                                    </h5>
+                                            class="text-dark">{{ \Str::limit($course->name, 50, '...') }}</a>
+                                    </h6>
                                     @if ($course->type == 'Premium')
                                         <span class="badge badge-success badge-pill px-3">Premium</span>
                                     @else

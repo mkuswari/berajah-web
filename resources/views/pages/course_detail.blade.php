@@ -139,10 +139,10 @@
                 <div class="col-sm-3 align-self-center">
                     <b>Harga</b>
                     <p class="text-muted">
-                        @if ($course->type == 'Premium')
-                            Rp. {{ number_format($course->price) }}
+                        @if ($course->type == 'Free')
+                        Gratis.
                         @else
-                            Gratis.
+                        Rp. {{ number_format($course->price) }}
                         @endif
                     </p>
                 </div>
