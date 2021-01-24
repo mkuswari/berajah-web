@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enrollment;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('frontend.home');
+        $courseTaken = Enrollment::with("courses", "users")->get();
+        return view('frontend.home', ["courses" => $courseTaken]);
     }
 }

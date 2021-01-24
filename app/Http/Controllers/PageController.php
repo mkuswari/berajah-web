@@ -7,8 +7,6 @@ use App\Category;
 use App\Content;
 use App\Course;
 use App\Enrollment;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class PageController extends Controller
 {
@@ -39,12 +37,12 @@ class PageController extends Controller
     // Detail pages
     public function courseDetail($slug)
     {
-        $course = Course::where('slug', $slug)->first();
+        $course = Course::where("slug", $slug)->first();
         $courses = Course::paginate(4);
         $contents = Content::where("course_id", $course->id)->get();
         $enroll = Enrollment::where("course_id", $course->id)->first();
 
-
+        // dd($course->type);
         return view("pages.course_detail", compact("course", "courses", "contents", "enroll"));
     }
 

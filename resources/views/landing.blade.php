@@ -109,13 +109,15 @@
             <h3 class="font-weight-bold text-center">Artikel Terbaru</h3>
             <div class="row mt-3">
                 @foreach ($articles as $article)
-                    <div class="col-sm-6 mt-3">
-                        <div class="card shadow">
-                            <img src="{{ asset('storage/' . $article->thumbnail) }}"
-                                style="width: 100%; height: 300px; object-fit: cover; object-position: center;">
+                    <div class="col-sm-4">
+                        <div class="card shadow rounded-lg border-0">
+                            <img src="{{ asset('storage/' . $article->thumbnail) }}" width="100%"
+                                style="height: 200px; object-fit: cover; object-position: center;">
                             <div class="card-body">
-                                <h5 class="card-title">{{ $article->title }}</h5>
-                                <p class="card-text">Content</p>
+                                <h6 class="card-title font-weight-bold">{{ $article->title }}</h6>
+                                <small class="text-muted">{{ date('d F Y', strtotime($article->created_at)) }}</small>
+                                <br>
+                                <a href="">Baca Selengkapnya...</a>
                             </div>
                         </div>
                     </div>

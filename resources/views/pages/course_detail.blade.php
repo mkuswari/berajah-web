@@ -5,6 +5,59 @@
 @endsection
 
 @section('content')
+    <!-- enroll bar -->
+    <div class="enroll-bar fixed-bottom shadow-lg py-4">
+        <div class="container d-flex justify-content-between">
+            <div class="row" style="width: 100%;">
+                <div class="col-sm-3 align-self-center">
+                    <b>Level</b>
+                    <p class="text-muted">{{ $course->level }}</p>
+                </div>
+                <div class="col-sm-3 align-self-center">
+                    <b>Kategori</b>
+                    <p class="text-muted">{{ $course->categories->name }}</p>
+                </div>
+                <div class="col-sm-3 align-self-center">
+                    <b>Harga</b>
+                    <p class="text-muted">
+                        @if ($course->type == 'Premium')
+                            Rp. {{ number_format($course->price) }}
+                        @elseif($course->type == "Free")
+                            Gratis.
+                        @endif
+                    </p>
+                </div>
+                <div class="col-sm-3 align-self-center">
+                    @auth
+                        @if ($enroll && ($enroll['user_id'] = Auth::user()->id))
+                            <a href="" class="btn btn-success btn-lg btn-block btn-lg rounded-0">Lanjutkan Belajar</a>
+                        @else
+                            @if ($course->type == 'Premium')
+                                <a href="" class="btn btn-primary btn-lg btn-block rounded-0">Beli Kelas</a>
+                            @else
+                                <form action="{{ route('enroll-kelas', [$course->id]) }}" method="POST" class="d-inline">
+                                    @csrf
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block rounded-0">Enroll
+                                        Kelas</button>
+                                </form>
+                            @endif
+                        @endif
+                    @else
+                        @if ($course->type == 'Premium')
+                            <a href="" class="btn btn-primary btn-lg btn-block rounded-0">Beli Kelas</a>
+                        @else
+                            <form action="{{ route('enroll-kelas', [$course->id]) }}" method="POST" class="d-inline">
+                                @csrf
+                                <button type="submit" class="btn btn-primary btn-lg btn-block rounded-0">Enroll
+                                    Kelas</button>
+                            </form>
+                        @endif
+                    @endauth
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end of enroll bar -->
     <!-- jumbotron -->
     <div class="jumbotron jumbotron-fluid">
         <div class="container text-white text-center">
@@ -86,95 +139,51 @@
     </section>
     <!-- end of about course -->
 
+    <section class="prerequisite py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-8 mx-auto text-center">
+                    <h3 class="font-weight-bold">Prasyarat Kelas</h3>
+                    <hr>
+                    @if ($course->prerequisite)
+                        {{ $course->prerequisite }}
+                    @else
+                        Tidak ada prasyarat khusus untuk kelas ini.
+                    @endif
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- reviews -->
     <section class="reviews py-5">
         <div class="container">
             <h3 class="font-weight-bold text-center">Kelas Lainnya</h3>
             <div class="row mt-4">
-                @if ($courses)
-                    @foreach ($courses as $course)
-                        <div class="col-sm-3">
-                            <div class="card shadow-sm border-0 mt-3">
-                                <img src="{{ asset('storage/' . $course->thumbnail) }}" class="course-thumbnail"
-                                    width="100%">
-                                <div class="card-body">
-                                    <h5 class="card-title">
-                                        <a href="{{ route('kelas/', [$course->slug]) }}" style="text-decoration: none;"
-                                            class="text-dark">{{ $course->name }}</a>
-                                    </h5>
-                                    @if ($course->type == 'Premium')
-                                        <span class="badge badge-success badge-pill px-3">Premium</span>
-                                    @else
-                                        <span class="badge badge-warning badge-pill px-3 text-white">Free</span>
-                                    @endif
-                                </div>
-                                <div class="card-footer border-0 bg-white">
-                                    <a href="{{ route('kelas/', [$course->slug]) }}"
-                                        class="btn btn-primary btn-block rounded-0">Pelajari Kelas ini</a>
-                                </div>
+                @foreach ($courses as $course)
+                    <div class="col-sm-3">
+                        <div class="card shadow-sm border-0 mt-3">
+                            <img src="{{ asset('storage/' . $course->thumbnail) }}" class="course-thumbnail" width="100%">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="{{ route('kelas/', [$course->slug]) }}" style="text-decoration: none;"
+                                        class="text-dark">{{ $course->name }}</a>
+                                </h5>
+                                @if ($course->type == 'Premium')
+                                    <span class="badge badge-success badge-pill px-3">Premium</span>
+                                @else
+                                    <span class="badge badge-warning badge-pill px-3 text-white">Free</span>
+                                @endif
+                            </div>
+                            <div class="card-footer border-0 bg-white">
+                                <a href="{{ route('kelas/', [$course->slug]) }}"
+                                    class="btn btn-primary btn-block rounded-0">Pelajari Kelas ini</a>
                             </div>
                         </div>
-                    @endforeach
-                @else
-                    <div class="alert alert-danger">Maaf, belum ada kelas tersedia</div>
-                @endif
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>
     <!-- end of reviews -->
-
-
-    <!-- enroll bar -->
-    <div class="enroll-bar fixed-bottom shadow-lg py-4">
-        <div class="container d-flex justify-content-between">
-            <div class="row" style="width: 100%;">
-                <div class="col-sm-3 align-self-center">
-                    <b>Level</b>
-                    <p class="text-muted">{{ $course->level }}</p>
-                </div>
-                <div class="col-sm-3 align-self-center">
-                    <b>Kategori</b>
-                    <p class="text-muted">{{ $course->categories->name }}</p>
-                </div>
-                <div class="col-sm-3 align-self-center">
-                    <b>Harga</b>
-                    <p class="text-muted">
-                        @if ($course->type == 'Free')
-                        Gratis.
-                        @else
-                        Rp. {{ number_format($course->price) }}
-                        @endif
-                    </p>
-                </div>
-                <div class="col-sm-3 align-self-center">
-                    @auth
-                        @if ($enroll && ($enroll['user_id'] = Auth::user()->id))
-                            <a href="" class="btn btn-success btn-lg btn-block btn-lg rounded-0">Lanjutkan Belajar</a>
-                        @else
-                            @if ($course->type == 'Premium')
-                                <a href="" class="btn btn-primary btn-lg btn-block rounded-0">Beli Kelas</a>
-                            @else
-                                <form action="{{ route('enroll-kelas', [$course->id]) }}" method="POST" class="d-inline">
-                                    @csrf
-                                    <button type="submit" class="btn btn-primary btn-lg btn-block rounded-0">Enroll
-                                        Kelas</button>
-                                </form>
-                            @endif
-                        @endif
-                    @else
-                        @if ($course->type == 'Premium')
-                            <a href="" class="btn btn-primary btn-lg btn-block rounded-0">Beli Kelas</a>
-                        @else
-                            <form action="{{ route('enroll-kelas', [$course->id]) }}" method="POST" class="d-inline">
-                                @csrf
-                                <button type="submit" class="btn btn-primary btn-lg btn-block rounded-0">Enroll
-                                    Kelas</button>
-                            </form>
-                        @endif
-                    @endauth
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- end of enroll bar -->
 @endsection
