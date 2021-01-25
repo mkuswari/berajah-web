@@ -40,6 +40,11 @@ class EnrollmentController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            "user_id" => "required",
+            "course_id" => "required"
+        ]);
+
         $enroll = new Enrollment;
         $enroll->user_id = $request->get("user_id");
         $enroll->course_id = $request->get("course_id");
@@ -71,6 +76,11 @@ class EnrollmentController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+            "user_id" => "required",
+            "course_id" => "required"
+        ]);
+
         $enroll = Enrollment::findOrFail($id);
         $enroll->user_id = $request->get("user_id");
         $enroll->course_id = $request->get("course_id");

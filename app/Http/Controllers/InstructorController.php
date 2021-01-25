@@ -36,6 +36,14 @@ class InstructorController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            "name" => "required|string|max:100",
+            "job" => "required|string",
+            "expertise" => "required|string",
+            "email" => "required|string|email",
+            "about" => "required",
+        ]);
+
         $instructor = new Instructor;
         $instructor->name = $request->get("name");
         $instructor->job = $request->get("job");
@@ -83,6 +91,14 @@ class InstructorController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+            "name" => "required|string|max:100",
+            "job" => "required|string",
+            "expertise" => "required|string",
+            "email" => "required|string|email",
+            "about" => "required",
+        ]);
+
         $instructor = Instructor::findOrFail($id);
         $instructor->name = $request->get("name");
         $instructor->job = $request->get("job");

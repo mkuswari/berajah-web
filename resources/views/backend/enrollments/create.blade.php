@@ -30,6 +30,11 @@
                                                         <option value="{{ $user->id }}">{{ $user->name }}</option>
                                                     @endforeach
                                                 </select>
+                                                @error('user_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -41,6 +46,11 @@
                                                         <option value="{{ $course->id }}">{{ $course->name }}</option>
                                                     @endforeach
                                                 </select>
+                                                @error('category_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row mt-3">

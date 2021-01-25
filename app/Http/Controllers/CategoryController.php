@@ -36,6 +36,11 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            "name" => "required",
+            "image" => "required|image"
+        ]);
+
         $category = new Category;
         $category->name = $request->get("name");
         $category->slug = \Str::slug($request->get("name"), "-");
@@ -68,6 +73,10 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+            "name" => "required"
+        ]);
+
         $category = Category::findOrFail($id);
         $category->name = $request->get("name");
         $category->slug = \Str::slug($request->get("slug"), "-");

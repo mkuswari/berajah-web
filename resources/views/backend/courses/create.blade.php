@@ -25,21 +25,39 @@
                                         <div class="form-group row">
                                             <label for="name" class="col-sm-2 col-form-label">Nama Kelas</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" name="name" id="name"
-                                                    placeholder="Nama Kelas...">
+                                                <input type="text" class="form-control @error('name') is-invalid @enderror"
+                                                    name="name" id="name" placeholder="Nama Kelas...">
+                                                @error('name')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="thumbnail" class="col-sm-2 col-form-label">Thumbnail</label>
                                             <div class="col-sm-10">
-                                                <input type="file" class="form-control" name="thumbnail" id="thumbnail">
+                                                <input type="file"
+                                                    class="form-control @error('thumbnail') is-invalid @enderror"
+                                                    name="thumbnail" id="thumbnail">
+                                                @error('thumbnail')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="trailer_url" class="col-sm-2 col-form-label">URL Trailer</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" name="trailer_url" id="trailer_url"
-                                                    placeholder="Url Trailer">
+                                                <input type="text"
+                                                    class="form-control @error('trailer_url') is-invalid @enderror"
+                                                    name="trailer_url" id="trailer_url" placeholder="Url Trailer">
+                                                @error('trailer_url')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -47,28 +65,45 @@
                                             <div class="col-sm-10">
                                                 <textarea class="summernote-simple" name="description"
                                                     id="description"></textarea>
+                                                @error('description')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="level" class="col-sm-2 col-form-label">Level Kelas</label>
                                             <div class="col-sm-10">
-                                                <select class="form-control" name="level" id="level">
+                                                <select class="form-control @error('level') is-invalid @enderror"
+                                                    name="level" id="level">
                                                     <option value="" disabled selected>--Pilih Level--</option>
                                                     <option value="All Level">All Level</option>
                                                     <option value="Beginner">Beginner</option>
                                                     <option value="Intermediate">Intermediate</option>
                                                     <option value="Expert">Expert</option>
                                                 </select>
+                                                @error('level')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="type" class="col-sm-2 col-form-label">Tipe Kelas</label>
                                             <div class="col-sm-10">
-                                                <select class="form-control" name="type" id="type">
+                                                <select class="form-control @error('type') is-invalid @enderror" name="type"
+                                                    id="type">
                                                     <option value="" disabled selected>--Pilih Tipe Kelas--</option>
                                                     <option value="Free">Free</option>
                                                     <option value="Premium">Premium</option>
                                                 </select>
+                                                @error('type')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row" id="form-harga">
@@ -94,6 +129,11 @@
                                                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                                                     @endforeach
                                                 </select>
+                                                @error('category_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -107,6 +147,11 @@
                                                         </option>
                                                     @endforeach
                                                 </select>
+                                                @error('instructor_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">

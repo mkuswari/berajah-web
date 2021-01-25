@@ -40,7 +40,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                      @if (\Auth::user()->roles == in_array("Admin" && "Staff", json_decode(Auth::user()->roles)))
+                      @if (Auth::user()->roles == in_array("Admin" && "Staff", json_decode(Auth::user()->roles)))
                           <a class="dropdown-item" href="{{ route("dashboard") }}">Dashboard</a>
                           <a class="dropdown-item" href="{{ route("home") }}">Akun saya</a>
                       @else

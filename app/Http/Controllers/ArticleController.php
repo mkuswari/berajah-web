@@ -39,6 +39,13 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            "title" => "required",
+            "thumbnail" => "required|image",
+            "category_id" => "required",
+            "content" => "required",
+        ]);
+
         $article = new Article;
         $article->title = $request->get("title");
         $article->slug = \Str::slug($request->get("title"));
@@ -88,6 +95,12 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+            "title" => "required",
+            "category_id" => "required",
+            "content" => "required",
+        ]);
+
         $article = Article::findOrFail($id);
         $article->title = $request->get("title");
         $article->slug = \Str::slug($request->get("title"));

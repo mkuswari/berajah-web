@@ -45,8 +45,14 @@
                                         <div class="form-group row">
                                             <label for="name" class="col-sm-2 col-form-label">Nama Kelas</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" name="name" id="name"
-                                                    placeholder="Nama Kelas..." value="{{ $course->name }}">
+                                                <input type="text" class="form-control @error('name') is-invalid @enderror"
+                                                    name="name" id="name" placeholder="Nama Kelas..."
+                                                    value="{{ $course->name }}">
+                                                @error('name')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -59,9 +65,15 @@
                                         <div class="form-group row">
                                             <label for="trailer_url" class="col-sm-2 col-form-label">URL Trailer</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" name="trailer_url" id="trailer_url"
-                                                    placeholder="Url Trailer"
+                                                <input type="text"
+                                                    class="form-control @error('trailer_url') is-invalid @enderror"
+                                                    name="trailer_url" id="trailer_url" placeholder="Url Trailer"
                                                     value="https://youtu.be/{{ $course->trailer_url }}">
+                                                @error('trailer_url')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -69,12 +81,18 @@
                                             <div class="col-sm-10">
                                                 <textarea class="summernote-simple" name="description"
                                                     id="description">{!!  $course->description !!}</textarea>
+                                                @error('description')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="level" class="col-sm-2 col-form-label">Level Kelas</label>
                                             <div class="col-sm-10">
-                                                <select class="form-control" name="level" id="level">
+                                                <select class="form-control @error('level') is-invalid @enderror"
+                                                    name="level" id="level">
                                                     <option value="" disabled selected>--Pilih Level--</option>
                                                     <option value="All Level"
                                                         {{ $course->level == 'All Level' ? 'selected' : '' }}>All Level
@@ -88,18 +106,29 @@
                                                     <option value="Expert"
                                                         {{ $course->level == 'Expert' ? 'selected' : '' }}>Expert</option>
                                                 </select>
+                                                @error('level')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="type" class="col-sm-2 col-form-label">Tipe Kelas</label>
                                             <div class="col-sm-10">
-                                                <select class="form-control" name="type" id="type">
+                                                <select class="form-control @error('type') is-invalid @enderror" name="type"
+                                                    id="type">
                                                     <option value="" disabled selected>--Pilih Tipe Kelas--</option>
                                                     <option value="Free" {{ $course->type == 'Free' ? 'selected' : '' }}>
                                                         Free</option>
                                                     <option value="Premium"
                                                         {{ $course->type == 'Premium' ? 'selected' : '' }}>Premium</option>
                                                 </select>
+                                                @error('type')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row" id="form-harga">
@@ -129,6 +158,11 @@
                                                         </option>
                                                     @endforeach
                                                 </select>
+                                                @error('category_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -144,6 +178,11 @@
                                                         </option>
                                                     @endforeach
                                                 </select>
+                                                @error('instructor_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">

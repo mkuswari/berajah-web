@@ -41,6 +41,17 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            "name" => "required|string",
+            "thumbnail" => "required|image",
+            "trailer_url" => "required",
+            "description" => "required",
+            "level" => "required",
+            "type" => "required",
+            "category_id" => "required",
+            "instructor_id" => "required"
+        ]);
+
         $course = new Course;
         $course->name = $request->get("name");
         $course->slug = \Str::slug($request->get("name"));
@@ -100,6 +111,16 @@ class CourseController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+            "name" => "required|string",
+            "trailer_url" => "required",
+            "description" => "required",
+            "level" => "required",
+            "type" => "required",
+            "category_id" => "required",
+            "instructor_id" => "required"
+        ]);
+
         $course = Course::findOrFail($id);
         $course->name = $request->get("name");
         $course->slug = \Str::slug($request->get("name"));

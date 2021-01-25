@@ -22,14 +22,25 @@
                                         <div class="form-group row">
                                             <label for="name" class="col-sm-2 col-form-label">Nama Kategori</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" name="name" id="name"
-                                                    placeholder="Nama Kategori...">
+                                                <input type="text" class="form-control @error('name') is-invalid @enderror"
+                                                    name="name" id="name" placeholder="Nama Kategori...">
+                                                @error('name')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="image" class="col-sm-2 col-form-label">Image Kategori</label>
                                             <div class="col-sm-10">
-                                                <input type="file" class="form-control" name="image" id="image">
+                                                <input type="file" class="form-control @error('image') is-invalid @enderror"
+                                                    name="image" id="image">
+                                                @error('image')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row mt-3">

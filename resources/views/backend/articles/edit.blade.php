@@ -26,8 +26,13 @@
                                     <div class="form-group row mb-4">
                                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Title</label>
                                         <div class="col-sm-12 col-md-7">
-                                            <input type="text" class="form-control" name="title"
-                                                value="{{ $article->title }}">
+                                            <input type="text" class="form-control @error('title') is-invalid @enderror"
+                                                name="title" value="{{ $article->title }}">
+                                            @error('title')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="form-group row mb-4">
@@ -60,6 +65,11 @@
                                                     </option>
                                                 @endforeach
                                             </select>
+                                            @error('category_id')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="form-group row mb-4">
@@ -67,6 +77,11 @@
                                         <div class="col-sm-12 col-md-7">
                                             <textarea class="summernote"
                                                 name="content">{!!  $article->content !!}</textarea>
+                                            @error('content')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="form-group row mb-4">
