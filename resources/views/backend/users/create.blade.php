@@ -21,15 +21,27 @@
                                         <div class="form-group row">
                                             <label for="name" class="col-sm-2 col-form-label">Nama Lengkap</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" name="name" id="name"
+                                                <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name"
                                                     placeholder="Nama Lengkap...">
+                                                    @error('name')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="email" class="col-sm-2 col-form-label">E-mail</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" name="email" id="email"
+                                                <input type="text" class="form-control @error('email')
+                                                    is-invalid
+                                                @enderror" name="email" id="email"
                                                     placeholder="E-mail...">
+                                                    @error('email')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -54,9 +66,14 @@
                                                 </div>
                                                 <div class="form-check form-check-inline">
                                                     <input class="form-check-input" type="checkbox" id="Member"
-                                                        value="Member" name="roles[]">
+                                                        value="Member" name="roles[]" checked>
                                                     <label class="form-check-label" for="Member">Member</label>
                                                 </div>
+                                                @error('roles[]')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -68,16 +85,30 @@
                                         <div class="form-group row">
                                             <label for="password" class="col-sm-2 col-form-label">Password</label>
                                             <div class="col-sm-10">
-                                                <input type="password" class="form-control" name="password" id="password"
+                                                <input type="password" class="form-control @error('password')
+                                                    is-invalid
+                                                @enderror" name="password" id="password"
                                                     placeholder="Buat Password...">
+                                                    @error('password')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="password_confirmation" class="col-sm-2 col-form-label">Konfirmasi
                                                 Password</label>
                                             <div class="col-sm-10">
-                                                <input type="password" class="form-control" name="password_confirmation"
+                                                <input type="password" class="form-control @error('password_confirmation')
+                                                    is-invalid
+                                                @enderror" name="password_confirmation"
                                                     id="password_confirmation" placeholder="Konfirmasi Password...">
+                                                    @error('password_confirmation')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row mt-3">

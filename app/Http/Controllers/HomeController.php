@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Enrollment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -24,7 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $courseTaken = Enrollment::with("courses", "users")->get();
-        return view('frontend.home', ["courses" => $courseTaken]);
+        $enrollments = Enrollment::with("courses")->where("user_id", Auth::user()->id)->paginate(10);
+
+        return view('frontend.home', compact("enrollments"));
     }
 }

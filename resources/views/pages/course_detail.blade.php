@@ -161,26 +161,27 @@
             <h3 class="font-weight-bold text-center">Kelas Lainnya</h3>
             <div class="row mt-4">
                 @foreach ($courses as $course)
-                    <div class="col-sm-3">
-                        <div class="card shadow-sm border-0 mt-3">
-                            <img src="{{ asset('storage/' . $course->thumbnail) }}" class="course-thumbnail" width="100%">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    <a href="{{ route('kelas/', [$course->slug]) }}" style="text-decoration: none;"
-                                        class="text-dark">{{ $course->name }}</a>
-                                </h5>
-                                @if ($course->type == 'Premium')
-                                    <span class="badge badge-success badge-pill px-3">Premium</span>
-                                @else
-                                    <span class="badge badge-warning badge-pill px-3 text-white">Free</span>
-                                @endif
-                            </div>
-                            <div class="card-footer border-0 bg-white">
-                                <a href="{{ route('kelas/', [$course->slug]) }}"
-                                    class="btn btn-primary btn-block rounded-0">Pelajari Kelas ini</a>
-                            </div>
+                <div class="col-sm-3">
+                    <div class="card shadow border-0 mt-3">
+                        <img src="{{ asset('storage/' . $course->thumbnail) }}" class="course-thumbnail"
+                            width="100%">
+                        <div class="card-body">
+                            <h6 class="card-title">
+                                <a href="{{ route('kelas/', [$course->slug]) }}" style="text-decoration: none;"
+                                    class="text-dark">{{ \Str::limit($course->name, 50, '...') }}</a>
+                            </h6>
+                            @if ($course->type == 'Premium')
+                                <span class="badge badge-success badge-pill px-3">Premium</span>
+                            @else
+                                <span class="badge badge-warning badge-pill px-3 text-white">Free</span>
+                            @endif
+                        </div>
+                        <div class="card-footer border-0 bg-white">
+                            <a href="{{ route('kelas/', [$course->slug]) }}"
+                                class="btn btn-primary btn-block rounded-0">Pelajari Kelas ini</a>
                         </div>
                     </div>
+                </div>
                 @endforeach
             </div>
         </div>
