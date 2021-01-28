@@ -31,162 +31,22 @@
                 </div>
             </div>
             <div class="row mt-5">
-                <div class="col-sm-6 mt-3">
-                    <a href="" style="text-decoration: none; color: black;">
-                        <div class="card mb-3 border-0 shadow-sm" style="max-width: 540px;">
-                            <div class="row no-gutters">
-                                <div class="col-md-4">
-                                    <img src="../images/courses/codeigniter.jpg" class="card-img blogs-thumbnail" alt="...">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
-                                        <p class="small">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                            Officiis
-                                            quae illum porro vel magni consequatur voluptates qui libero. Totam
-                                            asperiores
-                                            ducimus voluptas sunt odit!....</p>
-                                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
-                                        </p>
-                                    </div>
-                                </div>
+                @foreach ($articles as $article)
+                    <div class="col-sm-4">
+                        <div class="card shadow rounded-lg border-0">
+                            <img src="{{ asset('storage/' . $article->thumbnail) }}" width="100%"
+                                style="height: 200px; object-fit: cover; object-position: center;">
+                            <div class="card-body">
+                                <a href="{{ route('blog/', [$article->slug]) }}"
+                                    style="text-decoration: none; color: black;">
+                                    <h5 class="card-title font-weight-bold">{{ $article->title }}</h5>
+                                </a>
                             </div>
                         </div>
-                    </a>
-                </div>
-                <div class="col-sm-6 mt-3">
-                    <a href="" style="text-decoration: none; color: black;">
-                        <div class="card mb-3 border-0 shadow-sm" style="max-width: 540px;">
-                            <div class="row no-gutters">
-                                <div class="col-md-4">
-                                    <img src="../images/courses/codeigniter.jpg" class="card-img blogs-thumbnail" alt="...">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
-                                        <p class="small">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                            Officiis
-                                            quae illum porro vel magni consequatur voluptates qui libero. Totam
-                                            asperiores
-                                            ducimus voluptas sunt odit!....</p>
-                                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-6 mt-3">
-                    <a href="" style="text-decoration: none; color: black;">
-                        <div class="card mb-3 border-0 shadow-sm" style="max-width: 540px;">
-                            <div class="row no-gutters">
-                                <div class="col-md-4">
-                                    <img src="../images/courses/codeigniter.jpg" class="card-img blogs-thumbnail" alt="...">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
-                                        <p class="small">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                            Officiis
-                                            quae illum porro vel magni consequatur voluptates qui libero. Totam
-                                            asperiores
-                                            ducimus voluptas sunt odit!....</p>
-                                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-6 mt-3">
-                    <a href="" style="text-decoration: none; color: black;">
-                        <div class="card mb-3 border-0 shadow-sm" style="max-width: 540px;">
-                            <div class="row no-gutters">
-                                <div class="col-md-4">
-                                    <img src="../images/courses/codeigniter.jpg" class="card-img blogs-thumbnail" alt="...">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
-                                        <p class="small">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                            Officiis
-                                            quae illum porro vel magni consequatur voluptates qui libero. Totam
-                                            asperiores
-                                            ducimus voluptas sunt odit!....</p>
-                                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-6 mt-3">
-                    <a href="" style="text-decoration: none; color: black;">
-                        <div class="card mb-3 border-0 shadow-sm" style="max-width: 540px;">
-                            <div class="row no-gutters">
-                                <div class="col-md-4">
-                                    <img src="../images/courses/codeigniter.jpg" class="card-img blogs-thumbnail" alt="...">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
-                                        <p class="small">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                            Officiis
-                                            quae illum porro vel magni consequatur voluptates qui libero. Totam
-                                            asperiores
-                                            ducimus voluptas sunt odit!....</p>
-                                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-6 mt-3">
-                    <a href="" style="text-decoration: none; color: black;">
-                        <div class="card mb-3 border-0 shadow-sm" style="max-width: 540px;">
-                            <div class="row no-gutters">
-                                <div class="col-md-4">
-                                    <img src="../images/courses/codeigniter.jpg" class="card-img blogs-thumbnail" alt="...">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Lorem ipsum dolor sit amet.</h5>
-                                        <p class="small">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                            Officiis
-                                            quae illum porro vel magni consequatur voluptates qui libero. Totam
-                                            asperiores
-                                            ducimus voluptas sunt odit!....</p>
-                                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>
     <!-- end of courses -->
-
-    <!-- pagination -->
-    <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center">
-            <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-            </li>
-        </ul>
-    </nav>
-    <!-- end of pagination -->
 @endsection

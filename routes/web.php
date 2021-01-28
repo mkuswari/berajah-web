@@ -20,6 +20,7 @@ Route::get('/kelas/{slug}', 'PageController@courseDetail')->name('kelas/');
 Route::get('/kategori', 'PageController@categoryCatalogs')->name('kategori');
 Route::get('/kategori/{slug}', 'PageController@categoryDetail')->name('kategori/');
 Route::get('/blog', 'PageController@blogCatalogs')->name('blog');
+Route::get('/blog/{slug}', 'PageController@blogDetail')->name('blog/');
 
 // main routes
 Route::post('/enroll-kelas/{course}', 'MainController@enrollCourse')->name('enroll-kelas');

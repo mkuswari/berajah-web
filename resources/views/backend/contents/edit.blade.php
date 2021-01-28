@@ -27,16 +27,28 @@
                                         <div class="form-group row">
                                             <label for="name" class="col-sm-2 col-form-label">Judul Materi</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" name="name" id="name"
-                                                    placeholder="Judul Materi..." value="{{ $content->name }}">
+                                                <input type="text" class="form-control @error('name') is-invalid @enderror"
+                                                    name="name" id="name" placeholder="Judul Materi..."
+                                                    value="{{ $content->name }}">
+                                                @error('name')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="video_id" class="col-sm-2 col-form-label">Url Video</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" name="video_id" id="video_id"
-                                                    placeholder="Url Video"
+                                                <input type="text"
+                                                    class="form-control @error('video_id') is-invalid @enderror"
+                                                    name="video_id" id="video_id" placeholder="Url Video"
                                                     value="https://youtu.be/{{ $content->video_id }}">
+                                                @error('video_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">

@@ -31,7 +31,8 @@ class PageController extends Controller
 
     public function blogCatalogs()
     {
-        return view("pages.blog_catalogs");
+        $articles = Article::paginate(10);
+        return view("pages.blog_catalogs", compact("articles"));
     }
 
     // Detail pages
@@ -51,5 +52,11 @@ class PageController extends Controller
         $category = Category::where("slug", $slug)->first();
         $courses = Course::where('category_id', $category->id)->get();
         return view("pages.category_detail", compact("category", "courses"));
+    }
+
+    public function blogDetail($slug)
+    {
+        $article = Article::where("slug", $slug)->first();
+        return view("pages.blog_detail", compact("article"));
     }
 }

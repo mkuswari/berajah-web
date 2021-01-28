@@ -16,6 +16,11 @@ class ContentController extends Controller
 
     public function storeContent(Request $request)
     {
+        $this->validate($request, [
+            "name" => "required|string",
+            "video_id" => "required|url"
+        ]);
+
         $content = new Content;
         $content->name = $request->get("name");
         $content->slug = \Str::slug($request->get("name"));
@@ -37,6 +42,11 @@ class ContentController extends Controller
 
     public function updateContent(Request $request, $id)
     {
+        $this->validate($request, [
+            "name" => "required|string",
+            "video_id" => "required|url"
+        ]);
+
         $content = Content::findOrFail($id);
         $content->name = $request->get("name");
         $content->slug = \Str::slug($request->get("name"));

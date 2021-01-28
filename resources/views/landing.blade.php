@@ -14,7 +14,7 @@
                     <p>Lumbung Ilmu merupakan Platform Belajar Online Lokal, yang membantu kamu mengasah dan memperoleh
                         ilmu dengan beragam kelas gratis.</p>
                     <hr>
-                    <a href="" class="btn btn-warning btn-lg text-white">Mulai Belajar</a>
+                    <a href="{{ route('kelas') }}" class="btn btn-warning btn-lg text-white">Mulai Belajar</a>
                 </div>
                 <div class="col-sm-6">
                     <img src="{{ asset('global/images/svg/developer_activity.svg') }}" width="100%">
@@ -68,7 +68,7 @@
         <div class="container">
             <h3 class="font-weight-bold text-center">Kelas Terbaru kami</h3>
             <div class="row mt-3">
-                @if ($courses)
+                @if ($courses !== null)
                     @foreach ($courses as $course)
                         <div class="col-sm-3">
                             <div class="card shadow border-0 mt-3">
@@ -114,17 +114,17 @@
                             <img src="{{ asset('storage/' . $article->thumbnail) }}" width="100%"
                                 style="height: 200px; object-fit: cover; object-position: center;">
                             <div class="card-body">
-                                <h6 class="card-title font-weight-bold">{{ $article->title }}</h6>
-                                <small class="text-muted">{{ date('d F Y', strtotime($article->created_at)) }}</small>
-                                <br>
-                                <a href="">Baca Selengkapnya...</a>
+                                <a href="{{ route('blog/', [$article->slug]) }}"
+                                    style="text-decoration: none; color: black;">
+                                    <h5 class="card-title font-weight-bold">{{ $article->title }}</h5>
+                                </a>
                             </div>
                         </div>
                     </div>
                 @endforeach
             </div>
             <div class="text-center mt-4">
-                <a href="">Lihat semua Artikel</a>
+                <a href="{{ route('blog') }}">Lihat semua Artikel</a>
             </div>
         </div>
     </section>
