@@ -25,7 +25,7 @@
                             width="100%">
                         <div class="card-body">
                             <h6 class="card-title">
-                                <a href="{{ route('kelas/', [$enrollment->courses->slug]) }}" style="text-decoration: none;"
+                                <a href="{{ route('play', [$enrollment->courses->slug]) }}" style="text-decoration: none;"
                                     class="text-dark">{{ \Str::limit($enrollment->courses->name, 50, '...') }}</a>
                             </h6>
                         </div>

@@ -15,7 +15,7 @@
     <!-- end of jumbotron -->
 
     <!-- courses -->
-    <section class="categories py-4">
+    <section class="categories pb-5">
         <div class="container ">
             <div class="row">
                 @if ($categories)

@@ -1,5 +1,5 @@
 <!-- Sidebar -->
-<ul class="navbar-nav bg-blue-global sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -12,8 +12,16 @@
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
 
+    <li class="nav-item p-2">
+        <div class="card shadow border-0">
+            <div class="card-body">
+                Materi 1
+            </div>
+        </div>
+    </li>
+
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item">
+    {{-- <li class="nav-item">
         <a class="nav-link" href="index.html">
             <i class="fas fa-fw fa-home"></i>
             <span>Home</span></a>
@@ -44,7 +52,7 @@
         <a class="nav-link" href="index.html">
             <i class="fas fa-fw fa-sign-out-alt"></i>
             <span>Keluar</span></a>
-    </li>
+    </li> --}}
 
 
     <!-- Divider -->

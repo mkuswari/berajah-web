@@ -32,6 +32,7 @@ Route::get('/setting/profile', 'ProfileController@showProfile');
 // routes for member
 Route::group(['prefix' => 'member'], function () {
     Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/play/{slug}', 'MainController@playLesson')->name('play');
 });
 
 // routes for admin

@@ -40,11 +40,14 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                      @if (Auth::user()->roles == in_array("Admin" && "Staff", json_decode(Auth::user()->roles)))
+                      @if (Auth::user()->roles == in_array("Admin", json_decode(Auth::user()->roles) ))
                           <a class="dropdown-item" href="{{ route("dashboard") }}">Dashboard</a>
                           <a class="dropdown-item" href="{{ route("home") }}">Akun saya</a>
-                      @else
+                      @elseif(Auth::user()->roles == in_array("Staff", json_decode(Auth::user()->roles)))
+                        <a class="dropdown-item" href="{{ route("dashboard") }}">Dashboard</a>
                           <a class="dropdown-item" href="{{ route("home") }}">Akun saya</a>
+                      @else
+                      <a class="dropdown-item" href="{{ route("home") }}">Akun saya</a>
                       @endif
                       <a class="dropdown-item" href="dashboard-account.html">Setting</a>
                       <div class="dropdown-divider"></div>
