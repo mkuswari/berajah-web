@@ -33,6 +33,7 @@ Route::get('/setting/profile', 'ProfileController@showProfile');
 Route::group(['prefix' => 'member'], function () {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/play/{slug}', 'MainController@playLesson')->name('play');
+    Route::get('/play/{slug}/video/{id}', 'MainController@startLesson')->name('play-lesson');
 });
 
 // routes for admin

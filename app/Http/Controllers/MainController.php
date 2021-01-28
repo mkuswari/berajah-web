@@ -30,4 +30,12 @@ class MainController extends Controller
         $contents = Content::where("course_id", $course->id)->get();
         return view("main.play_lesson", compact("course", "contents"));
     }
+
+    public function startLesson($slug, $id)
+    {
+        $course = Course::where("slug", $slug)->first();
+        $content = Content::findOrFail($id);
+        $contents = Content::where("course_id", $course->id)->get();
+        return view("main.play_lesson", compact("course", "content", "contents"));
+    }
 }
