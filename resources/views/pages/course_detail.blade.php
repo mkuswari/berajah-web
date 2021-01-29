@@ -29,9 +29,8 @@
                 </div>
                 <div class="col-sm-3 align-self-center">
                     @auth
-                        @if ($enroll && ($enroll['user_id'] = Auth::user()->id))
-                            <a href="{{ route('play', [$course->slug]) }}"
-                                class="btn btn-success btn-lg btn-block btn-lg rounded-0">Mulai Belajar</a>
+                        @if ($enroll && $enroll['user_id'] == Auth::user()->id)
+                            <a href="#" class="btn btn-success btn-lg btn-block btn-lg rounded-0">Mulai Belajar</a>
                         @else
                             @if ($course->type == 'Premium')
                                 <a href="" class="btn btn-primary btn-lg btn-block rounded-0">Beli Kelas</a>

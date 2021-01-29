@@ -9,7 +9,11 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-light py-3">
         <div class="container-fluid d-flex justify-content-between">
             <a class="navbar-brand" href="{{ url('/') }}">Lumbung Kelas</a>
-            <a href="" class="btn btn-warning text-white rounded-0">Logout</a>
+            <a class="btn btn-warning text-white rounded-0" href="{{ route('logout') }}"
+                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Keluar</a>
+            <form action="{{ route('logout') }}" method="POST" class="d-none" id="logout-form">
+                @csrf
+            </form>
         </div>
     </nav>
     {{-- end of navbar --}}

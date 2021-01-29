@@ -11,7 +11,7 @@
 |
 */
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 // global routes
 Route::get('/', 'PageController@index');
@@ -23,8 +23,10 @@ Route::get('/blog', 'PageController@blogCatalogs')->name('blog');
 Route::get('/blog/{slug}', 'PageController@blogDetail')->name('blog/');
 
 // main routes
-Route::post('/enroll-kelas/{course}', 'MainController@enrollCourse')->name('enroll-kelas');
-Route::get('/enroll-success', 'MainController@showEnrollSuuccessPage')->name('enroll-success');
+Route::group(['middleware' => ['verified']], function () {
+    Route::post('/enroll-kelas/{course}', 'MainController@enrollCourse')->name('enroll-kelas');
+    Route::get('/enroll-success', 'MainController@showEnrollSuuccessPage')->name('enroll-success');
+});
 
 
 // profile routes
@@ -32,9 +34,11 @@ Route::get('/setting/profile', 'ProfileController@showProfile');
 
 // routes for member
 Route::group(['prefix' => 'member'], function () {
-    Route::get('/home', 'HomeController@index')->name('home');
-    Route::get('/play/{slug}', 'MainController@playLesson')->name('play');
-    Route::get('/play/{slug}/video/{id}', 'MainController@startLesson')->name('play-lesson');
+    Route::group(['middleware' => ['verified']], function () {
+        Route::get('/home', 'HomeController@index')->name('home');
+        Route::get('/play/{slug}', 'MainController@playLesson')->name('play');
+        Route::get('/play/{slug}/video/{id}', 'MainController@startLesson')->name('play-lesson');
+    });
 });
 
 // routes for admin

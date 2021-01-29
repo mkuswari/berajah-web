@@ -24,6 +24,11 @@
                                     </button>
                                 </div>
                             @endif
+                            @if (session('success'))
+                                <div class="alert alert-success" role="alert">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
                             <div class="login-form">
                                 <form action="{{ route('login') }}" method="POST">
                                     @csrf

@@ -1,7 +1,7 @@
 @extends('layouts.global')
 
 @section('title')
-    Katalog Kelas
+    Lumbung Kelas - Katalog Kelas
 @endsection
 
 @section('content')

@@ -1,7 +1,7 @@
 @extends('layouts.global')
 
 @section('title')
-    Belajar Online mudah dan Gratis
+    Lumbung Kelas - Belajar Online mudah dan Gratis
 @endsection
 
 @section('content')
@@ -68,33 +68,30 @@
         <div class="container">
             <h3 class="font-weight-bold text-center">Kelas Terbaru kami</h3>
             <div class="row mt-3">
-                @if ($courses !== null)
-                    @foreach ($courses as $course)
-                        <div class="col-sm-3">
-                            <div class="card shadow border-0 mt-3">
-                                <img src="{{ asset('storage/' . $course->thumbnail) }}" class="course-thumbnail"
-                                    width="100%">
-                                <div class="card-body">
-                                    <h6 class="card-title">
-                                        <a href="{{ route('kelas/', [$course->slug]) }}" style="text-decoration: none;"
-                                            class="text-dark">{{ \Str::limit($course->name, 50, '...') }}</a>
-                                    </h6>
-                                    @if ($course->type == 'Premium')
-                                        <span class="badge badge-success badge-pill px-3">Premium</span>
-                                    @else
-                                        <span class="badge badge-warning badge-pill px-3 text-white">Free</span>
-                                    @endif
-                                </div>
-                                <div class="card-footer border-0 bg-white">
-                                    <a href="{{ route('kelas/', [$course->slug]) }}"
-                                        class="btn btn-primary btn-block rounded-0">Pelajari Kelas ini</a>
-                                </div>
+                @forelse ($courses as $course)
+                    <div class="col-sm-3">
+                        <div class="card shadow border-0 mt-3">
+                            <img src="{{ asset('storage/' . $course->thumbnail) }}" class="course-thumbnail" width="100%">
+                            <div class="card-body">
+                                <h6 class="card-title">
+                                    <a href="{{ route('kelas/', [$course->slug]) }}" style="text-decoration: none;"
+                                        class="text-dark">{{ \Str::limit($course->name, 50, '...') }}</a>
+                                </h6>
+                                @if ($course->type == 'Premium')
+                                    <span class="badge badge-success badge-pill px-3">Premium</span>
+                                @else
+                                    <span class="badge badge-warning badge-pill px-3 text-white">Free</span>
+                                @endif
+                            </div>
+                            <div class="card-footer border-0 bg-white">
+                                <a href="{{ route('kelas/', [$course->slug]) }}"
+                                    class="btn btn-primary btn-block rounded-0">Pelajari Kelas ini</a>
                             </div>
                         </div>
-                    @endforeach
-                @else
+                    </div>
+                @empty
                     <div class="alert alert-danger">Maaf, belum ada kelas tersedia</div>
-                @endif
+                @endforelse
             </div>
             <div class="text-center mt-4">
                 <a href="{{ route('kelas') }}">Lihat Semua Kelas</a>
@@ -108,20 +105,21 @@
         <div class="container">
             <h3 class="font-weight-bold text-center">Artikel Terbaru</h3>
             <div class="row mt-3">
-                @foreach ($articles as $article)
+                @forelse ($articles as $article)
                     <div class="col-sm-4">
                         <div class="card shadow rounded-lg border-0">
                             <img src="{{ asset('storage/' . $article->thumbnail) }}" width="100%"
                                 style="height: 200px; object-fit: cover; object-position: center;">
                             <div class="card-body">
-                                <a href="{{ route('blog/', [$article->slug]) }}"
-                                    style="text-decoration: none; color: black;">
-                                    <h5 class="card-title font-weight-bold">{{ $article->title }}</h5>
+                                <a href="{{ route('blog/', [$article->slug]) }}" style="color: black;">
+                                    <h6 class="card-title font-weight-bold">{{ $article->title }}</h6>
                                 </a>
                             </div>
                         </div>
                     </div>
-                @endforeach
+                @empty
+                    <div class="alert alert-danger">Maaf, belum ada Artikel tersedia</div>
+                @endforelse
             </div>
             <div class="text-center mt-4">
                 <a href="{{ route('blog') }}">Lihat semua Artikel</a>

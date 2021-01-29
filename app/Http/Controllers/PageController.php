@@ -57,6 +57,7 @@ class PageController extends Controller
     public function blogDetail($slug)
     {
         $article = Article::where("slug", $slug)->first();
-        return view("pages.blog_detail", compact("article"));
+        $articles = Article::all();
+        return view("pages.blog_detail", compact("article", "articles"));
     }
 }

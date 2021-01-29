@@ -1,34 +1,48 @@
 @extends('layouts.global')
 
 @section('title')
-    Kategori
+    {{ $article->title }}
 @endsection
 
 @section('content')
     <!-- jumbotron -->
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container text-white text-center">
-            <h2 class="font-weight-bold">{{ $article->title }}</h2>
-        </div>
-    </div>
-    </div>
+    <div class="jumbotron jumbotron-fluid" style="height: 200px;"></div>
     <!-- end of jumbotron -->
 
-    <!-- courses -->
-    <section class="categories pb-5">
-        <div class="container ">
+    <section class="blog-section" style="margin-top: -150px; margin-bottom: 50px;">
+        <div class="container">
             <div class="row">
-                <div class="col-sm-10 mx-auto">
-                    <i class="fas fa-user mr-2"></i><span>{{ $article->author }}</span> | <i
-                        class="fas fa-clock mr-2"></i><span>{{ date('d F Y', strtotime($article->created_at)) }}</span> | <i
-                        class="fas fa-tags mr-2"></i><span>{{ $article->categories->name }}</span>
-                    <hr>
-                    <img src="{{ asset('storage/' . $article->thumbnail) }}" class="img-thumbnail mb-3">
-                    {!! $article->content !!}
+                <div class="col-sm-8">
+                    <div class="card shadow border-0">
+                        <div class="card-body">
+                            <h4 class="font-weight-bold">{{ $article->title }}</h4>
+                            <p class="text-muted small">Oleh : {{ $article->author }} | Pada :
+                                {{ date('d F, Y', strtotime($article->created_at)) }}
+                            </p>
+                            <hr>
+                            <img src="{{ asset('storage/' . $article->thumbnail) }}" width="100%"
+                                style="height: 400px; object-fit: cover; object-position: center;" class="rounded">
+                            <div class="article-content py-4">
+                                {!! $article->content !!}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card shadow border-0">
+                        <div class="card-body">
+                            <h5 class="font-weight-bold text-center">Blog Lainnya</h5>
+                            <hr>
+                            @foreach ($articles as $article)
+                                <a href="{{ route('blog/', [$article->slug]) }}" class="text-dark font-weight-bold">
+                                    <p>{{ $article->title }}</p>
+                                </a>
+                            @endforeach
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- end of courses -->
 
 @endsection

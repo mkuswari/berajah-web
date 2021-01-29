@@ -10,5 +10,5 @@
     <link rel="stylesheet" href="{{ asset('global/css/app.css') }}">
     @stack('styles')
 
-    <title>Lumbung Ilmu | @yield('title')</title>
+    <title>@yield('title')</title>
 </head>
