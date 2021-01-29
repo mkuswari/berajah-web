@@ -67,3 +67,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('/enrolls', 'EnrollmentController');
     Route::resource('/articles', 'ArticleController');
 });
+
+// Socialite Google auth routes
+Route::get('{provider}', 'Auth\GoogleController@redirect');
+Route::get('callback/{provider}', 'Auth\GoogleController@callback');

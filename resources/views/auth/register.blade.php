@@ -61,10 +61,11 @@
                                     <hr>
                                     <div class="form-action">
                                         <button type="submit" class="btn btn-primary btn-block">Register</button>
-                                        <a href="" class="btn btn-danger btn-block">Daftar dengan Google</a>
+                                        <a href="{{ url('auth/google') }}" class="btn btn-danger btn-block">Daftar dengan
+                                            Google</a>
                                     </div>
                                     <div class="text-center mt-3">
-                                        <a href="">Login Disini</a>
+                                        <a href="{{ route('login') }}">Login Disini</a>
                                     </div>
                                 </form>
                             </div>

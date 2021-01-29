@@ -60,7 +60,8 @@
                                     <hr>
                                     <div class="form-action">
                                         <button type="submit" class="btn btn-primary btn-block">Login</button>
-                                        <a href="" class="btn btn-danger btn-block">Login With Google</a>
+                                        <a href="{{ url('google') }}" class="btn btn-danger btn-block">Login With
+                                            Google</a>
                                     </div>
                                     <div class="text-center mt-3">
                                         <a href="{{ route('register') }}">Daftar Akun Baru</a>

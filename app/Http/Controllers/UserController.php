@@ -58,6 +58,7 @@ class UserController extends Controller
         $user = new User;
         $user->name = $request->get("name");
         $user->email = $request->get("email");
+        $user->email_verified_at = now();
         $user->phone = $request->get("phone");
         $user->roles = json_encode($request->get("roles"));
         if ($request->file("avatar")) {
