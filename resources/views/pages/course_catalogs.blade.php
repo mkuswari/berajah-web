@@ -15,7 +15,7 @@
     <!-- end of jumbotron -->
 
     <!-- courses -->
-    <section class="courses py-4">
+    <section class="courses py-4" style="margin-bottom: 100px;">
         <div class="container ">
             <div class="row d-flex justify-content-between">
                 <div class="col-sm-7 align-self-center">
@@ -24,7 +24,8 @@
                 <div class="col-sm-5">
                     <form action="{{ route('kelas') }}">
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Cari nama kelas..." name="keyword">
+                            <input type="text" class="form-control" placeholder="Cari nama kelas..." name="keyword"
+                                value="{{ Request::get('keyword') }}">
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="submit" id="button-addon2">Cari</button>
                             </div>

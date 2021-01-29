@@ -22,9 +22,10 @@
                     <h3 class="font-weight-bold">Kategori</h3>
                 </div>
                 <div class="col-sm-5">
-                    <form action="{{ route('kelas') }}">
+                    <form action="{{ route('kategori') }}">
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Cari kategori..." name="keyword">
+                            <input type="text" class="form-control" placeholder="Cari nama kelas..." name="keyword"
+                                value="{{ Request::get('keyword') }}">
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="submit" id="button-addon2">Cari</button>
                             </div>

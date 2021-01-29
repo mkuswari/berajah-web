@@ -15,36 +15,47 @@
     <!-- end of jumbotron -->
 
     <!-- courses -->
-    <section class="courses py-4">
+    <section class="courses py-4" style="margin-bottom: 100px;">
         <div class="container ">
-            {{-- <div class="row d-flex justify-content-between">
+            <div class="row d-flex justify-content-between">
                 <div class="col-sm-7 align-self-center">
-                    <h3 class="font-weight-bold">Kelas kami</h3>
+                    <h3 class="font-weight-bold">Artikel</h3>
                 </div>
                 <div class="col-sm-5">
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Cari Artikel...">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary" type="submit" id="button-addon2">Search</button>
+                    <form action="{{ route('blog') }}">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Cari nama kelas..." name="keyword"
+                                value="{{ Request::get('keyword') }}">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit" id="button-addon2">Cari</button>
+                            </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
-            </div> --}}
+            </div>
             <div class="row mt-5">
-                @foreach ($articles as $article)
+                @forelse ($articles as $article)
                     <div class="col-sm-4">
                         <div class="card shadow rounded-lg border-0">
                             <img src="{{ asset('storage/' . $article->thumbnail) }}" width="100%"
                                 style="height: 200px; object-fit: cover; object-position: center;">
                             <div class="card-body">
-                                <a href="{{ route('blog/', [$article->slug]) }}"
-                                    style="text-decoration: none; color: black;">
-                                    <h5 class="card-title font-weight-bold">{{ $article->title }}</h5>
+                                <a href="{{ route('blog/', [$article->slug]) }}" style="color: black;">
+                                    <h6 class="card-title font-weight-bold">{{ $article->title }}</h6>
                                 </a>
                             </div>
                         </div>
                     </div>
-                @endforeach
+                @empty
+                    <div class="row py-5">
+                        <div class="col-sm-8 mx-auto">
+                            <img src="{{ asset('global/images/svg/empty.svg') }}" width="100%">
+                            <h4 class="text-center mt-4 text-muted font-weight-bold">Upps.. Sepertinya Belum ada Artikel
+                                tersedia
+                            </h4>
+                        </div>
+                    </div>
+                @endforelse
             </div>
         </div>
     </section>
