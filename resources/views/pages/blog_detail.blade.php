@@ -23,6 +23,7 @@
                         class="fas fa-clock mr-2"></i><span>{{ date('d F Y', strtotime($article->created_at)) }}</span> | <i
                         class="fas fa-tags mr-2"></i><span>{{ $article->categories->name }}</span>
                     <hr>
+                    <img src="{{ asset('storage/' . $article->thumbnail) }}" class="img-thumbnail mb-3">
                     {!! $article->content !!}
                 </div>
             </div>

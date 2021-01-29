@@ -4,9 +4,20 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        // parent::__construct();
+        $this->middleware('auth');
+        $this->middleware(function ($request, $next) {
+            if (Gate::allows('manage-users')) return $next($request);
+            abort(403, 'Anda tidak memiliki cukup hak akses');
+        });
+    }
+
     /**
      * Display a listing of the resource.
      *

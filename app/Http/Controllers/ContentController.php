@@ -5,9 +5,18 @@ namespace App\Http\Controllers;
 use App\Content;
 use App\Course;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class ContentController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware(function ($request, $next) {
+            if (Gate::allows('manage-contents')) return $next($request);
+            abort(403, 'Anda tidak memiliki cukup hak akses');
+        });
+    }
     public function addContent($id)
     {
         $course = Course::findOrFail($id);
