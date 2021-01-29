@@ -17,19 +17,21 @@
     <!-- courses -->
     <section class="courses py-4">
         <div class="container ">
-            <div class="row d-flex justify-content-between">
+            {{-- <div class="row d-flex justify-content-between">
                 <div class="col-sm-7 align-self-center">
                     <h3 class="font-weight-bold">Kelas</h3>
                 </div>
                 <div class="col-sm-5">
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Cari nama kelas...">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary" type="submit" id="button-addon2">Search</button>
+                    <form action="{{ route('kelas') }}">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Cari nama kelas..." name="keyword">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit" id="button-addon2">Cari</button>
+                            </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
-            </div>
+            </div> --}}
             <div class="row mt-4">
                 @if ($courses)
                     @foreach ($courses as $course)
@@ -64,18 +66,10 @@
     <!-- end of courses -->
 
     <!-- pagination -->
-    {{-- <nav aria-label="Page navigation example">
+    <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
-            <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-            </li>
+            {{ $courses->links() }}
         </ul>
-    </nav> --}}
+    </nav>
     <!-- end of pagination -->
 @endsection

@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-sm-4 mx-auto">
                 <h6>Powered By :</h6>
-                <img src="{{ asset("global/images/linov.png") }}" width="200px">
+                <img src="{{ asset('global/images/linov.png') }}" width="200px">
             </div>
         </div>
         <hr>

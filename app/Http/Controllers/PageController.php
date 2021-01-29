@@ -12,14 +12,14 @@ class PageController extends Controller
 {
     public function index()
     {
-        $courses = Course::paginate(4);
+        $courses = Course::where("status", "Published")->paginate(4);
         $articles = Article::paginate(4);
         return view("landing", compact("courses", "articles"));
     }
 
     public function courseCatalogs()
     {
-        $courses = Course::paginate(16);
+        $courses = Course::where("status", "Published")->paginate(16);
         return view("pages.course_catalogs", compact("courses"));
     }
 
@@ -50,7 +50,7 @@ class PageController extends Controller
     public function categoryDetail($slug)
     {
         $category = Category::where("slug", $slug)->first();
-        $courses = Course::where('category_id', $category->id)->get();
+        $courses = Course::where('category_id', $category->id)->paginate(16);
         return view("pages.category_detail", compact("category", "courses"));
     }
 

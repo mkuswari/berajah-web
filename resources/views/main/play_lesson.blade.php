@@ -58,17 +58,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6 mx-auto">
-                    <h4 class="font-weight-bold">Materi Kelas</h4>
+                    <h4 class="font-weight-bold text-center">Materi Kelas</h4>
                     <hr>
-                    <ul class="list-group">
-                        @foreach ($contents as $content)
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                {{ $loop->iteration }}. {{ $content->name }}
-                                <a href="{{ route('play-lesson', [$course->slug, $content->id]) }}"
-                                    class="badge badge-primary badge-pill px-3">Play</a>
-                            </li>
-                        @endforeach
-                    </ul>
+                    @foreach ($contents as $content)
+                        <a href="{{ route('play-lesson', [$course->slug, $content->id]) }}">
+                            <div class="panel bg-light rounde-lg shadow-lg p-3 mb-2">
+                                {{ $loop->iteration }} | {{ $content->name }}
+                            </div>
+                        </a>
+                    @endforeach
                 </div>
             </div>
         </div>

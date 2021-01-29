@@ -17,7 +17,7 @@
     <!-- courses -->
     <section class="courses py-4">
         <div class="container ">
-            <div class="row d-flex justify-content-between">
+            {{-- <div class="row d-flex justify-content-between">
                 <div class="col-sm-7 align-self-center">
                     <h3 class="font-weight-bold">Kelas kami</h3>
                 </div>
@@ -29,7 +29,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <div class="row mt-5">
                 @foreach ($articles as $article)
                     <div class="col-sm-4">
@@ -49,4 +49,10 @@
         </div>
     </section>
     <!-- end of courses -->
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            {{ $articles->links() }}
+        </ul>
+    </nav>
 @endsection
