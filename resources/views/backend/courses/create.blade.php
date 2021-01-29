@@ -159,12 +159,12 @@
                                             <div class="col-sm-10">
                                                 <div class="form-check form-check-inline">
                                                     <input class="form-check-input" type="radio" id="Published"
-                                                        value="Published" name="status" checked>
+                                                        value="Published" name="status">
                                                     <label class="form-check-label" for="Published">Published</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
                                                     <input class="form-check-input" type="radio" id="Archived"
-                                                        value="Archived" name="status">
+                                                        value="Archived" name="status" checked>
                                                     <label class="form-check-label" for="Archived">Archived</label>
                                                 </div>
                                             </div>

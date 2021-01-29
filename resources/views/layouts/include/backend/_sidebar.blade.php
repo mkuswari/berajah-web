@@ -1,14 +1,14 @@
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="index.html">Lumbung Kelas</a>
+            <a href="{{ route('dashboard') }}">Lumbung Kelas</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
-            <a href="index.html">Lk</a>
+            <a href="{{ route('dashboard') }}">Lk</a>
         </div>
         <ul class="sidebar-menu">
             <li class="menu-header">Dashboard</li>
-            <li class="active"><a class="nav-link" href="credits.html">
+            <li class="active"><a class="nav-link" href="{{ route('dashboard') }}">
                     <i class="fas fa-home"></i>
                     <span>Dashboard</span>
                 </a>
@@ -49,6 +49,26 @@
                     <i class="fas fa-file"></i>
                     <span>Kelola Artikel</span>
                 </a>
+            </li>
+            <li>
+                <a href="" class="nav-link">
+                    <i class="fas fa-user-cog"></i>
+                    <span>Profile Saya</span>
+                </a>
+            </li>
+            <li>
+                <a href="" class="nav-link">
+                    <i class="fas fa-cogs"></i>
+                    <span>Pengaturan Web</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('logout') }}" class="nav-link text-danger"
+                    onclick="event.preventDefault(); document.getElementById('logoutForm').submit();">
+                    <i class=" fas fa-sign-out-alt"></i>
+                    <span>Keluar</span>
+                </a>
+
             </li>
         </ul>
     </aside>

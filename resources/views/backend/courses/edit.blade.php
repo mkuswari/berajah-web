@@ -172,7 +172,7 @@
                                                     id="instructor_id">
                                                     <option value="" disabled selected>--Pilih Instruktur--</option>
                                                     @foreach ($instructors as $instructor)
-                                                        <option value="{{ $category->id }}"
+                                                        <option value="{{ $instructor->id }}"
                                                             {{ $instructor->id == $course->instructor_id ? 'selected' : '' }}>
                                                             {{ $instructor->name }}
                                                         </option>
@@ -206,7 +206,7 @@
                                             <div class="col-sm-2"></div>
                                             <div class="col-sm-10">
                                                 <button type="submit" class="btn btn-primary">Update Kelas</button>
-                                                <a href="{{ route('users.index') }}" class="btn btn-warning">Batalkan</a>
+                                                <a href="{{ route('courses.index') }}" class="btn btn-warning">Batalkan</a>
                                             </div>
                                         </div>
                                     </form>

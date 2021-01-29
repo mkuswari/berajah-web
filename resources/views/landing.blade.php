@@ -16,7 +16,7 @@
                     <hr>
                     <a href="{{ route('kelas') }}" class="btn btn-warning btn-lg text-white">Mulai Belajar</a>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-6 d-none d-sm-block">
                     <img src="{{ asset('global/images/svg/developer_activity.svg') }}" width="100%">
                 </div>
             </div>

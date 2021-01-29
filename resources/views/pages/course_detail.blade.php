@@ -128,11 +128,12 @@
                 <div class="col-sm-5">
                     <h3 class="font-weight-bold">Materi Kelas</h3>
                     <hr>
-                    <ul class="list-group">
-                        @foreach ($contents as $content)
-                            <li class="list-group-item">{{ $loop->iteration }} | {{ $content->name }}</li>
-                        @endforeach
-                    </ul>
+
+                    @foreach ($contents as $content)
+                        <div class="panel bg-light rounded-lg shadow p-3 mb-2">
+                            {{ $loop->iteration }} | {{ $content->name }}
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
