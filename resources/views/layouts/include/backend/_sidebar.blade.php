@@ -51,7 +51,7 @@
                 </a>
             </li>
             <li>
-                <a href="" class="nav-link">
+                <a href="{{ route('profile-saya') }}" class="nav-link">
                     <i class="fas fa-user-cog"></i>
                     <span>Profile Saya</span>
                 </a>

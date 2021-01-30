@@ -28,6 +28,10 @@ Route::group(['middleware' => ['verified']], function () {
     Route::get('/enroll-success', 'MainController@showEnrollSuuccessPage')->name('enroll-success');
 });
 
+// profiles routes
+Route::get('/profile-saya', 'ProfileController@index')->name('profile-saya');
+Route::patch('/profile-saya', 'ProfileController@update')->name('profile-saya.update');
+Route::post('/profile-saya', 'ProfileController@changePassword')->name('profile-saya.changepassword');
 
 // profile routes
 Route::get('/setting/profile', 'ProfileController@showProfile');
