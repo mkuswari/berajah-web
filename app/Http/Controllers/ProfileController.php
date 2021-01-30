@@ -44,6 +44,12 @@ class ProfileController extends Controller
 
     public function changePassword(Request $request)
     {
+        $this->validate($request, [
+            "current_password" => "required|min:4",
+            "new_password" => "required|min:4",
+            "new_password_confirm" => "required|min:4"
+        ]);
+
         // if current password not matches
         if (!(Hash::check($request->get("current_password"), Auth::user()->password))) {
             return redirect()->route("profile-saya")->with("error", "Password kamu salah");

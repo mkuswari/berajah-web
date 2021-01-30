@@ -49,7 +49,7 @@
                       @else
                       <a class="dropdown-item" href="{{ route("home") }}">Akun saya</a>
                       @endif
-                      <a class="dropdown-item" href="dashboard-account.html">Setting</a>
+                      <a class="dropdown-item" href="{{ route("profile-saya")  }}">Profile Saya</a>
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item text-danger" href="{{ route("logout") }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Keluar</a>
                       <form action="{{ route("logout") }}" method="POST" class="d-none" id="logout-form">

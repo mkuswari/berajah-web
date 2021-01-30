@@ -114,23 +114,43 @@
                                             <label for="current_password" class="col-sm-2 col-form-label">Password
                                                 Sekarang</label>
                                             <div class="col-sm-10">
-                                                <input type="password" class="form-control" name="current_password"
-                                                    id="current_password" placeholder="Current Password">
+                                                <input type="password"
+                                                    class="form-control @error('current_password') is-invalid @enderror"
+                                                    name="current_password" id="current_password"
+                                                    placeholder="Current Password">
+                                                @error('current_password')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="new_password" class="col-sm-2 col-form-label">Password baru</label>
                                             <div class="col-sm-10">
-                                                <input type="password" class="form-control" name="new_password"
-                                                    id="new_password" placeholder="New Password">
+                                                <input type="password"
+                                                    class="form-control @error('new_password') is-invalid @enderror"
+                                                    name="new_password" id="new_password" placeholder="New Password">
+                                                @error('new_password')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="new_password_confirm" class="col-sm-2 col-form-label">Konfirmasi
                                                 Password</label>
                                             <div class="col-sm-10">
-                                                <input type="password" class="form-control" name="new_password_confirm"
-                                                    id="new_password_confirm" placeholder="Current Password">
+                                                <input type="password"
+                                                    class="form-control @error('new_password_confirm') is-invalid @enderror"
+                                                    name="new_password_confirm" id="new_password_confirm"
+                                                    placeholder="Current Password">
+                                                @error('new_password_confirm')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-action row">

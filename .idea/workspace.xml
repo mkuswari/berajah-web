@@ -2,33 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db966a3a-12eb-4429-b3f8-2e5eae8cea2a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Content.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Content.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_15_084651_create_enrollments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_15_084651_create_enrollments_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/global/images/categories/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/global/images/courses/codeigniter.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/global/images/courses/laravel.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/global/images/courses/nodejs.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/global/images/instructors/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/global/images/ss-landing-page.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/courses/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/courses/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/courses/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/courses/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/landing.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/landing.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/include/backend/_navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/include/backend/_navbar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/include/backend/_sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/include/backend/_sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/main/enroll_success.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/enroll_success.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/main/play_lesson.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/play_lesson.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/category_catalogs.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/category_catalogs.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/category_detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/category_detail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/course_catalogs.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/course_catalogs.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/course_detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/course_detail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/profiles/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/profiles/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/include/global/_navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/include/global/_navbar.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -165,6 +149,7 @@
       <option name="presentableId" value="Default" />
       <updated>1611926892690</updated>
       <workItem from="1611926900103" duration="333000" />
+      <workItem from="1611966970387" duration="115000" />
     </task>
     <servers />
   </component>
