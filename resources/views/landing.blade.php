@@ -67,6 +67,7 @@
     <section class="lates-course py-5 bg-light">
         <div class="container">
             <h3 class="font-weight-bold text-center">Kelas Terbaru kami</h3>
+            <hr>
             <div class="row mt-3">
                 @forelse ($courses as $course)
                     <div class="col-sm-3">
@@ -90,7 +91,7 @@
                         </div>
                     </div>
                 @empty
-                    <div class="alert alert-danger">Maaf, belum ada kelas tersedia</div>
+                    <img src="{{ asset('global/images/svg/empty.svg') }}" width="50%" class="mx-auto">
                 @endforelse
             </div>
             <div class="text-center mt-4">
@@ -118,7 +119,7 @@
                         </div>
                     </div>
                 @empty
-                    <div class="alert alert-danger">Maaf, belum ada Artikel tersedia</div>
+                    <img src="{{ asset('global/images/svg/empty.svg') }}" width="50%" class="mx-auto">
                 @endforelse
             </div>
             <div class="text-center mt-4">

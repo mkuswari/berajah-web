@@ -13,7 +13,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-8">
-                    <div class="card shadow border-0">
+                    <div class="card shadow border-0 mt-2">
                         <div class="card-body">
                             <h4 class="font-weight-bold">{{ $article->title }}</h4>
                             <p class="text-muted small">Oleh : {{ $article->author }} | Pada :
@@ -29,7 +29,7 @@
                     </div>
                 </div>
                 <div class="col-sm-4">
-                    <div class="card shadow border-0">
+                    <div class="card shadow border-0 mt-2">
                         <div class="card-body">
                             <h5 class="font-weight-bold text-center">Blog Lainnya</h5>
                             <hr>

@@ -78,11 +78,14 @@
                 <div class="col-sm-8">
                     <div class="card">
                         <div class="card-body">
-                            <iframe
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe class="embed-responsive-item"
                                 src="https://www.youtube.com/embed/{{ $course->trailer_url }}?modestbranding=1&autoplay=1"
                                 frameborder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen style="width: 100%; height: 420px;"></iframe>
+                                allowfullscreen>
+                            </iframe>
+                              </div>
 
                         </div>
                     </div>

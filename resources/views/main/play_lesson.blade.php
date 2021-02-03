@@ -35,12 +35,14 @@
                     <div class="card shadow border-0">
                         @if (Route::is('play', [$course->slug]))
                             <div class="card-body">
-                                <iframe
+                                <div class="embed-responsive embed-responsive-16by9">
+                                    <iframe class="embed-responsive-item"
                                     src="https://www.youtube.com/embed/{{ $course->trailer_url }}?modestbranding=1&autoplay=1"
                                     frameborder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen style="width: 100%; height: 845px;">
+                                    allowfullscreen>
                                 </iframe>
+                                  </div>
                             </div>
                         @else
                             <div class="card-body">
@@ -66,7 +68,7 @@
                     </div>
                 </div>
                 <div class="col-sm-3">
-                    <h3 class="text-white font-weight-bold text-center">Materi</h3>
+                    <h3 class="text-white font-weight-bold text-center d-sm-text-dark">Materi</h3>
                     <hr>
                     <div class="card shadow border-0">
                         <div class="card-body">

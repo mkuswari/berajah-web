@@ -37,3 +37,7 @@ return [
     ],
 
 ];
+
+// GOOGLE_CLIENT_ID=1040415216484-19n4914asqcoouraa261tnr01v1bvc47.apps.googleusercontent.com
+// GOOGLE_CLIENT_SECRET=YLkJITALWZ-9HypNj3HgGkbp
+// GOOGLE_REDIRECT=http://127.0.0.1:8000/callback/google
