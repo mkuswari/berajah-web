@@ -14,12 +14,14 @@
                 </a>
             </li>
             <li class="menu-header">Menu</li>
+            @if (Auth::user()->roles == in_array("Admin", json_decode(Auth::user()->roles) ))
             <li>
                 <a href="{{ route('users.index') }}" class="nav-link">
                     <i class="fas fa-users"></i>
                     <span>Kelola Users</span>
                 </a>
             </li>
+            @endif
             <li>
                 <a href="{{ route('instructors.index') }}" class="nav-link">
                     <i class="fas fa-user"></i>
