@@ -48,6 +48,11 @@ class PageController extends Controller
         return view("pages.blog_catalogs", compact("articles"));
     }
 
+    public function paymentPageAction()
+    {
+        return view("pages.payment");
+    }
+
     // Detail pages
     public function courseDetail($slug)
     {

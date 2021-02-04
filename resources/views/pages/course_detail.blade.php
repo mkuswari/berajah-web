@@ -30,10 +30,12 @@
                 <div class="col-sm-3 align-self-center">
                     @auth
                         @if ($enroll && $enroll['user_id'] == Auth::user()->id)
-                            <a href="#" class="btn btn-success btn-lg btn-block btn-lg rounded-0">Mulai Belajar</a>
+                            <a href="{{ route('play', [$course->slug]) }}"
+                                class="btn btn-success btn-lg btn-block btn-lg rounded-0">Mulai Belajar</a>
                         @else
                             @if ($course->type == 'Premium')
-                                <a href="" class="btn btn-primary btn-lg btn-block rounded-0">Beli Kelas</a>
+                                <a href="{{ route('payment') }}" class="btn btn-primary btn-lg btn-block rounded-0">Beli
+                                    Kelas</a>
                             @else
                                 <form action="{{ route('enroll-kelas', [$course->id]) }}" method="POST" class="d-inline">
                                     @csrf
@@ -80,12 +82,12 @@
                         <div class="card-body">
                             <div class="embed-responsive embed-responsive-16by9">
                                 <iframe class="embed-responsive-item"
-                                src="https://www.youtube.com/embed/{{ $course->trailer_url }}?modestbranding=1&autoplay=1"
-                                frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen>
-                            </iframe>
-                              </div>
+                                    src="https://www.youtube.com/embed/{{ $course->trailer_url }}?modestbranding=1&autoplay=1"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
 
                         </div>
                     </div>
@@ -167,7 +169,8 @@
                 @foreach ($courses as $course)
                     <div class="col-sm-3">
                         <div class="card shadow border-0 mt-3">
-                            <img src="{{ asset('storage/' . $course->thumbnail) }}" class="course-thumbnail" width="100%">
+                            <img src="{{ asset('storage/' . $course->thumbnail) }}" class="course-thumbnail"
+                                width="100%">
                             <div class="card-body">
                                 <h6 class="card-title">
                                     <a href="{{ route('kelas/', [$course->slug]) }}" style="text-decoration: none;"

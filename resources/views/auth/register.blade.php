@@ -61,7 +61,7 @@
                                     <hr>
                                     <div class="form-action">
                                         <button type="submit" class="btn btn-primary btn-block">Register</button>
-                                        <a href="{{ url('auth/google') }}" class="btn btn-danger btn-block">Daftar dengan
+                                        <a href="{{ url('google') }}" class="btn btn-danger btn-block">Daftar dengan
                                             Google</a>
                                     </div>
                                     <div class="text-center mt-3">

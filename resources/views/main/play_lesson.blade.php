@@ -18,7 +18,7 @@
     </nav>
     {{-- end of navbar --}}
 
-    {{-- panel--}}
+    {{-- panel --}}
     <!-- jumbotron -->
     <div class="jumbotron jumbotron-fluid" style="height: 200px;"></div>
     <!-- end of jumbotron -->
@@ -37,12 +37,12 @@
                             <div class="card-body">
                                 <div class="embed-responsive embed-responsive-16by9">
                                     <iframe class="embed-responsive-item"
-                                    src="https://www.youtube.com/embed/{{ $course->trailer_url }}?modestbranding=1&autoplay=1"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen>
-                                </iframe>
-                                  </div>
+                                        src="https://www.youtube.com/embed/{{ $course->trailer_url }}?modestbranding=1&autoplay=1"
+                                        frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen>
+                                    </iframe>
+                                </div>
                             </div>
                         @else
                             <div class="card-body">
@@ -68,7 +68,7 @@
                     </div>
                 </div>
                 <div class="col-sm-3">
-                    <h3 class="text-white font-weight-bold text-center d-sm-text-dark">Materi</h3>
+                    <h3 class="text-white font-weight-bold text-center d-none d-sm-block">Materi</h3>
                     <hr>
                     <div class="card shadow border-0">
                         <div class="card-body">
@@ -89,39 +89,33 @@
     </section>
 @endsection
 
-{{--@section('content')--}}
-{{-- <div class="jumbotron jumbotron-fluid text-white">--}}
-    {{-- <div class="container text-center">--}}
+{{-- @section('content') --}}
+{{-- <div class="jumbotron jumbotron-fluid text-white"> --}}
+{{-- <div class="container text-center"> --}}
 
-        {{--
-    </div>--}}
-    {{-- </div>--}}
-{{-- <section class="lesson-area py-5" style="margin-top: -110px;">
-    --}}
-    {{-- <div class="container">--}}
-        {{-- <div class="row">--}}
-            {{-- <div class="col-sm-12">--}}
-                {{-- <div class="card border-0 shadow">--}}
+{{-- </div> --}}
+{{-- </div> --}}
+{{-- <section class="lesson-area py-5" style="margin-top: -110px;"> --}}
+{{-- <div class="container"> --}}
+{{-- <div class="row"> --}}
+{{-- <div class="col-sm-12"> --}}
+{{-- <div class="card border-0 shadow"> --}}
 
-                    {{--
-                </div>--}}
-                {{-- </div>--}}
-            {{-- </div>--}}
-        {{-- </div>--}}
-    {{-- </section>--}}
+{{-- </div> --}}
+{{-- </div> --}}
+{{-- </div> --}}
+{{-- </div> --}}
+{{-- </section> --}}
 
-{{-- <section class="course-contents pb-5">--}}
-    {{-- <div class="container">--}}
-        {{-- <div class="row">--}}
-            {{-- <div class="col-sm-6 mx-auto">--}}
-                {{-- <h4 class="font-weight-bold text-center">Materi Kelas</h4>
-                --}}
-                {{--
-                <hr>--}}
+{{-- <section class="course-contents pb-5"> --}}
+{{-- <div class="container"> --}}
+{{-- <div class="row"> --}}
+{{-- <div class="col-sm-6 mx-auto"> --}}
+{{-- <h4 class="font-weight-bold text-center">Materi Kelas</h4> --}}
+{{-- <hr> --}}
 
-                {{--
-            </div>--}}
-            {{-- </div>--}}
-        {{-- </div>--}}
-    {{-- </section>--}}
-{{--@endsection--}}
+{{-- </div> --}}
+{{-- </div> --}}
+{{-- </div> --}}
+{{-- </section> --}}
+{{-- @endsection --}}
