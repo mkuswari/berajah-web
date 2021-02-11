@@ -8,9 +8,9 @@
     {{-- navbar --}}
     <nav class="navbar navbar-expand-lg navbar-dark bg-light py-3">
         <div class="container-fluid d-flex justify-content-between">
-            <a class="navbar-brand" href="{{ url('/') }}">Lumbung Kelas</a>
+            <a class="navbar-brand" href="{{ url('/') }}">berajah.com</a>
             <a class="btn btn-warning text-white rounded-0" href="{{ route('logout') }}"
-                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Keluar</a>
+               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Keluar</a>
             <form action="{{ route('logout') }}" method="POST" class="d-none" id="logout-form">
                 @csrf
             </form>
@@ -37,20 +37,20 @@
                             <div class="card-body">
                                 <div class="embed-responsive embed-responsive-16by9">
                                     <iframe class="embed-responsive-item"
-                                        src="https://www.youtube.com/embed/{{ $course->trailer_url }}?modestbranding=1&autoplay=1"
-                                        frameborder="0"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                        allowfullscreen>
+                                            src="https://www.youtube.com/embed/{{ $course->trailer_url }}?modestbranding=1&autoplay=1"
+                                            frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowfullscreen>
                                     </iframe>
                                 </div>
                             </div>
                         @else
                             <div class="card-body">
                                 <iframe
-                                    src="https://www.youtube.com/embed/{{ $content->video_id }}?modestbranding=1&autoplay=1"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen style="width: 100%; height: 845px;">
+                                        src="https://www.youtube.com/embed/{{ $content->video_id }}?modestbranding=1&autoplay=1"
+                                        frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen style="width: 100%; height: 845px;">
                                 </iframe>
                                 <div class="instructor-note py-2">
                                     <h5>Catatan Instruktur :</h5>
