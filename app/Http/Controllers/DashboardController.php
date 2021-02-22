@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 
 class DashboardController extends Controller
@@ -28,6 +29,10 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('backend.dashboard');
+        $users = DB::table('users')->count();
+        $instructors = DB::table('instructors')->count();
+        $courses = DB::table('courses')->count();
+        $articles = DB::table('articles')->count();
+        return view('backend.dashboard', compact('users', 'instructors', 'courses', 'articles'));
     }
 }
