@@ -1,7 +1,7 @@
 <!-- navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark py-3">
     <div class="container">
-        <a class="navbar-brand font-weight-bold" href="{{ url("/") }}">berajah.com</a>
+        <a class="navbar-brand font-weight-bold" href="{{ url("/") }}">berajah.id</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -20,8 +20,8 @@
                 <div class="nav-item align-self-center {{ Request::is('blog') ? 'active' : '' }}">
                     <a href="{{ route('blog') }}" class="nav-link">Blogs</a>
                 </div>
-                <div class="nav-item align-self-center d-none">
-                    <a href="" class="nav-link">Tentang</a>
+                <div class="nav-item align-self-center">
+                    <a href="{{ route('about') }}" class="nav-link">Tentang</a>
                 </div>
 
                 @guest

@@ -1,7 +1,7 @@
 @extends('layouts.global')
 
 @section('title')
-    Lumbung Kelas - Belajar Online mudah dan Gratis
+    Belajar ID - Belajar Online dari komunitas untuk komunitas
 @endsection
 
 @section('content')
@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-sm-6 align-self-center">
                     <h1>Belajar bersama kami.</h1>
-                    <p>Lumbung Ilmu merupakan Platform Belajar Online Lokal, yang membantu kamu mengasah dan memperoleh
+                    <p><b>Belajar.id</b> merupakan Platform Belajar Online Lokal, yang membantu kamu mengasah dan memperoleh
                         ilmu dengan beragam kelas gratis.</p>
                     <hr>
                     <a href="{{ route('kelas') }}" class="btn btn-warning btn-lg text-white">Mulai Belajar</a>
@@ -27,7 +27,7 @@
     <!-- our-benefit -->
     <section class="benefit-us py-5">
         <div class="container text-center">
-            <h2 class="font-weight-bold">Kenapa belajar di Lumbung Ilmu?</h2>
+            <h2 class="font-weight-bold">Kenapa belajar di belajar.id?</h2>
             <div class="row mt-5">
                 <div class="col-sm-3">
                     <img src="{{ asset('global/images/png/1.png') }}">

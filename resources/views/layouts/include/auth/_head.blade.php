@@ -7,5 +7,5 @@
     <!-- custom css -->
     <link rel="stylesheet" href="{{ asset('global/css/app.css') }}">
 
-    <title>Lumbung Ilmu | @yield('title')</title>
+    <title>Belajar ID | @yield('title')</title>
 </head>

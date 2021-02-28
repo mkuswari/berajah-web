@@ -50,7 +50,7 @@ class PageController extends Controller
 
     public function paymentPageAction()
     {
-        return view("pages.payment");
+        abort(404);
     }
 
     // Detail pages
