@@ -48,12 +48,15 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            "name" => "required|trim|max:100",
+            "name" => "required|max:100",
             "email" => "required|max:100|email|unique:users,email",
-            "roles[]" => "required",
             "password" => "required|string|min:8|confirmed",
             "password_confirmation" => "required|string|min:8",
         ]);
+
+        $imgName = $request->avatar->getClientOriginalName() . '-' . time()
+            . '.' . $request->avatar->extension();
+        $request->avatar->move(public_path('images/avatars/users'), $imgName);
 
         $user = new User;
         $user->name = $request->get("name");
@@ -61,10 +64,7 @@ class UserController extends Controller
         $user->email_verified_at = now();
         $user->phone = $request->get("phone");
         $user->roles = json_encode($request->get("roles"));
-        if ($request->file("avatar")) {
-            $fileUpload = $request->file("avatar")->store("avatars", "public");
-            $user->avatar = $fileUpload;
-        }
+        $user->avatar = $imgName;
         $user->password = \Hash::make($request->get("password"));
         $user->save();
         return redirect()->route("users.index")->with("success", "User Baru berhasil ditambahkan");
@@ -108,17 +108,18 @@ class UserController extends Controller
             "email" => "required|email"
         ]);
 
+
+
         $user = User::findOrFail($id);
         $user->name = $request->get("name");
         $user->email = $request->get("email");
         $user->phone = $request->get("phone");
         $user->roles = json_encode($request->get("roles"));
-        if ($request->file("avatar")) {
-            if ($user->avatar && file_exists(storage_path("app/public/" . $user->avatar))) {
-                \Storage::delete("public/" . $user->avatar);
-            }
-            $fileUpload = $request->file("avatar")->store("avatars", "public");
-            $user->avatar = $fileUpload;
+        if ($request->avatar) {
+            $imgName = $request->avatar->getClientOriginalName() . '-' . time()
+                . '.' . $request->avatar->extension();
+            $request->avatar->move(public_path('images/avatars/users'), $imgName);
+            $user->avatar = $imgName;
         }
         $user->save();
         return redirect()->route("users.index")->with("success", "Data user berhasil diupdate");

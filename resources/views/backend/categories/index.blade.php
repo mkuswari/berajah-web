@@ -49,7 +49,7 @@
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>
                                                     <img class="rounded" width="100%"
-                                                        src="{{ asset('storage/' . $category->image) }}"
+                                                        src="{{ asset('images/thumbnails/categories/' . $category->image) }}"
                                                         style="height: 150px; object-fit: cover; object-position: center;">
                                                 </td>
                                                 <td>{{ $category->name }}</td>

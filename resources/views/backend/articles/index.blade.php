@@ -17,22 +17,6 @@
                 <h1>Kelola Artikel</h1>
                 <a href="{{ route('articles.create') }}" class="btn btn-primary">Tambah Artikel Baru</a>
             </div>
-            {{-- <div class="row">
-                <div class="col-12">
-                    <div class="card mb-0">
-                        <div class="card-body">
-                            <ul class="nav nav-pills">
-                                <li class="nav-item">
-                                    <a class="nav-link active" href="#">Semua</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Draft</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
             <div class="row">
                 <div class="col-12">
                     <div class="card">

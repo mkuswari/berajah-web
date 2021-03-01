@@ -1,7 +1,7 @@
 @extends('layouts.global')
 
 @section('title')
-    Lumbung Kelas - Blogs
+    Berajah ID - Blogs
 @endsection
 
 @section('content')
@@ -37,7 +37,7 @@
                 @forelse ($articles as $article)
                     <div class="col-sm-4">
                         <div class="card shadow rounded-lg border-0">
-                            <img src="{{ asset('storage/' . $article->thumbnail) }}" width="100%"
+                            <img src="{{ asset('images/thumbnails/articles/' . $article->thumbnail) }}" width="100%"
                                 style="height: 200px; object-fit: cover; object-position: center;">
                             <div class="card-body">
                                 <a href="{{ route('blog/', [$article->slug]) }}" style="color: black;">

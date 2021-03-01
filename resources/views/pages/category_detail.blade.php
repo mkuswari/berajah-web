@@ -21,7 +21,8 @@
                 @forelse ($courses as $course)
                     <div class="col-sm-3">
                         <div class="card shadow border-0 mt-3">
-                            <img src="{{ asset('storage/' . $course->thumbnail) }}" class="course-thumbnail" width="100%">
+                            <img src="{{ asset('images/thumbnails/categories/' . $course->thumbnail) }}"
+                                class="course-thumbnail" width="100%">
                             <div class="card-body">
                                 <h6 class="card-title">
                                     <a href="{{ route('kelas/', [$course->slug]) }}" style="text-decoration: none;"

@@ -54,16 +54,17 @@ class InstructorController extends Controller
             "about" => "required",
         ]);
 
+        $imgName = $request->avatar->getClientOriginalName() . '-' . time()
+            . '.' . $request->avatar->extension();
+        $request->avatar->move(public_path('images/avatars/instrustors'), $imgName);
+
         $instructor = new Instructor;
         $instructor->name = $request->get("name");
         $instructor->job = $request->get("job");
         $instructor->expertise = $request->get("expertise");
         $instructor->email = $request->get("email");
         $instructor->about = $request->get("about");
-        if ($request->file("avatar")) {
-            $fileUpload = $request->file("avatar")->store("avatars", "public");
-            $instructor->avatar = $fileUpload;
-        }
+        $instructor->avatar = $imgName;
         $instructor->save();
         return redirect()->route("instructors.index")->with("success", "Instruktur Baru berhasil ditambahkan");
     }
@@ -109,18 +110,19 @@ class InstructorController extends Controller
             "about" => "required",
         ]);
 
+
+
         $instructor = Instructor::findOrFail($id);
         $instructor->name = $request->get("name");
         $instructor->job = $request->get("job");
         $instructor->expertise = $request->get("expertise");
         $instructor->email = $request->get("email");
         $instructor->about = $request->get("about");
-        if ($request->file("avatar")) {
-            if ($instructor->avatar && file_exists(storage_path("app/public/" . $instructor->avatar))) {
-                \Storage::delete("public/" . $instructor->avatar);
-            }
-            $fileUpload = $request->file("avatar")->store("avatars", "public");
-            $instructor->avatar = $fileUpload;
+        if ($request->avatar) {
+            $imgName = $request->avatar->getClientOriginalName() . '-' . time()
+                . '.' . $request->avatar->extension();
+            $request->avatar->move(public_path('images/avatars/instructors'), $imgName);
+            $instructor->avatar = $imgName;
         }
         $instructor->save();
         return redirect()->route("instructors.index")->with("success", "Data Instruktur berhasil diupdate");

@@ -39,7 +39,7 @@
                                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Active
                                             Thumbnail</label>
                                         <div class="col-sm-12 col-md-7">
-                                            <img src="{{ asset('storage/' . $article->thumbnail) }}"
+                                            <img src="{{ asset('images/thumbnails/articles/' . $article->thumbnail) }}"
                                                 style="width: 100%; height: 400px; object-fit: cover; object-position: center;">
                                         </div>
                                     </div>
@@ -75,8 +75,7 @@
                                     <div class="form-group row mb-4">
                                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Content</label>
                                         <div class="col-sm-12 col-md-7">
-                                            <textarea class="summernote"
-                                                name="content">{!!  $article->content !!}</textarea>
+                                            <textarea class="summernote" name="content">{!! $article->content !!}</textarea>
                                             @error('content')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>

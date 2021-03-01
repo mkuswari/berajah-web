@@ -97,7 +97,7 @@
                         <div class="card-body text-center">
                             <h5 class="card-title font-weight-bold">Tentang Mentor</h5>
                             @if ($course->instructors->avatar)
-                                <img src="{{ asset('storage/' . $course->instructors->avatar) }}"
+                                <img src="{{ asset('images/avatars/instructors/' . $course->instructors->avatar) }}"
                                     class="rounded-cirle instructor-thumbnail shadow-sm">
                             @else
                                 <img alt="image"

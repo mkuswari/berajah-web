@@ -50,7 +50,8 @@
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>
                                                     @if ($user->avatar)
-                                                        <img alt="image" src="{{ asset('storage/' . $user->avatar) }}"
+                                                        <img alt="image"
+                                                            src="{{ asset('images/avatars/users/' . $user->avatar) }}"
                                                             class="rounded-circle mr-1"
                                                             style="width: 50px; height: 50px; object-fit: cover; object-position: center;">
                                                     @else
@@ -80,8 +81,9 @@
                                                     <a href="{{ route('users.edit', [$user->id]) }}"
                                                         class="btn btn-warning btn-icon"><i
                                                             class="fas fa-pencil-alt"></i></a>
-                                                    <form action="{{ route('users.destroy', [$user->id]) }}" method="post"
-                                                        class="d-inline" onsubmit="return confirm('Hapus User ini?')">
+                                                    <form action="{{ route('users.destroy', [$user->id]) }}"
+                                                        method="post" class="d-inline"
+                                                        onsubmit="return confirm('Hapus User ini?')">
                                                         {{ csrf_field() }}
                                                         @method("DELETE")
                                                         <button type="submit" class="btn btn-danger btn-icon"><i

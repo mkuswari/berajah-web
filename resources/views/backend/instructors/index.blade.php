@@ -49,7 +49,8 @@
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>
                                                     @if ($instructor->avatar)
-                                                        <img alt="image" src="{{ asset('storage/' . $instructor->avatar) }}"
+                                                        <img alt="image"
+                                                            src="{{ asset('images/avatars/instructors/' . $instructor->avatar) }}"
                                                             class="rounded-circle mr-1"
                                                             style="width: 50px; height: 50px; object-fit: cover; object-position: center;">
                                                     @else

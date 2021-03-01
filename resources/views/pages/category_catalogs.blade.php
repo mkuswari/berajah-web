@@ -1,7 +1,7 @@
 @extends('layouts.global')
 
 @section('title')
-    Lumbung Kelas - Katalog Kategori
+    Berajah ID - Katalog Kategori
 @endsection
 
 @section('content')
@@ -36,9 +36,11 @@
             <div class="row py-5">
                 @forelse ($categories as $category)
                     <div class="col-sm-3">
-                        <a href="{{ route('kategori/', [$category->slug]) }}" style="text-decoration: none;" class="text-dark">
+                        <a href="{{ route('kategori/', [$category->slug]) }}" style="text-decoration: none;"
+                            class="text-dark">
                             <div class="card shadow mt-4 border-0">
-                                <img src="{{ asset('storage/' . $category->image) }}" class="card-img-top category-thumbnail">
+                                <img src="{{ asset('images/thumbnails/categories/' . $category->image) }}"
+                                    class="card-img-top category-thumbnail">
                                 <div class="card-body">
                                     <p class="card-text font-weight-bold text-center">{{ $category->name }}</p>
                                 </div>

@@ -13,7 +13,8 @@
         <li class="dropdown"><a href="#" data-toggle="dropdown"
                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                 @if (Auth::user()->avatar)
-                    <img alt="image" src="{{ asset('storage/' . Auth::user()->avatar) }}" class="rounded-circle mr-1">
+                    <img alt="image" src="{{ asset('images/avatars/users/' . Auth::user()->avatar) }}"
+                        class="rounded-circle mr-1">
                 @else
                     <img alt="image"
                         src="https://ui-avatars.com/api/?name={{ Auth::user()->name }}&background=random&color=fff"

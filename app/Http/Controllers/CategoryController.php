@@ -51,13 +51,14 @@ class CategoryController extends Controller
             "image" => "required|image"
         ]);
 
+        $imgName = $request->image->getClientOriginalName() . '-' . time()
+            . '.' . $request->image->extension();
+        $request->image->move(public_path('images/thumbnails/categories'), $imgName);
+
         $category = new Category;
         $category->name = $request->get("name");
         $category->slug = \Str::slug($request->get("name"), "-");
-        if ($request->file("image")) {
-            $fileUpload = $request->file("image")->store("category_images", "public");
-            $category->image = $fileUpload;
-        }
+        $category->image = $imgName;
         $category->save();
         return redirect()->route("categories.index")->with("success", "Kategori baru berhasil ditambahkan");
     }
@@ -87,15 +88,16 @@ class CategoryController extends Controller
             "name" => "required"
         ]);
 
+
+
         $category = Category::findOrFail($id);
         $category->name = $request->get("name");
         $category->slug = \Str::slug($request->get("slug"), "-");
-        if ($request->file("image")) {
-            if ($category->image && file_exists(storage_path("app/public/" . $category->name))) {
-                \Storage::delete("public/" . $category->image);
-            }
-            $newImage = $request->file("image")->store("category_images", "public");
-            $category->image = $newImage;
+        if ($request->image) {
+            $imgName = $request->image->getClientOriginalName() . '-' . time()
+                . '.' . $request->image->extension();
+            $request->image->move(public_path('images/thumbnails/categories'), $imgName);
+            $category->image = $imgName;
         }
         $category->save();
         return redirect()->route("categories.index")->with("success", "Data Kategori berhasil diperbarui");

@@ -20,7 +20,7 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <b>Thumbnail</b>
-                            <img src="{{ asset('storage/' . $course->thumbnail) }}" class="rounded"
+                            <img src="{{ asset('images/thumbnails/courses/' . $course->thumbnail) }}" class="rounded"
                                 style="width: 100%; height: 280px; object-fit: cover; object-position: center;">
                             <hr>
                             <b>Nama Kelas</b>

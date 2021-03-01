@@ -22,7 +22,6 @@ Route::get('/kategori/{slug}', 'PageController@categoryDetail')->name('kategori/
 Route::get('/blog', 'PageController@blogCatalogs')->name('blog');
 Route::get('/blog/{slug}', 'PageController@blogDetail')->name('blog/');
 Route::get('/about', 'PageController@aboutUs')->name('about');
-Route::get('/payment', 'PageController@paymentPageAction')->name('payment');
 
 // main routes
 Route::group(['middleware' => ['verified']], function () {

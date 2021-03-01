@@ -33,7 +33,7 @@
                         <a class="nav-link" href="details.html#" id="navbarDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             @if (Auth::user()->avatar)
-                                <img src="{{ asset("storage/".Auth::user()->avatar) }}"
+                                <img src="{{ asset("images/avatars/users/".Auth::user()->avatar) }}"
                                      class="rounded-circle mr-2 profile-picture"
                                      style="width: 45px; height: 45px; object-fit: cover; object-position: center;"/>
                             @else

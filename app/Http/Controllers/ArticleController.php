@@ -57,13 +57,14 @@ class ArticleController extends Controller
             "content" => "required",
         ]);
 
+        $imgName = $request->thumbnail->getClientOriginalName() . '-' . time()
+            . '.' . $request->thumbnail->extension();
+        $request->thumbnail->move(public_path('images/thumbnails/articles'), $imgName);
+
         $article = new Article;
         $article->title = $request->get("title");
         $article->slug = \Str::slug($request->get("title"));
-        if ($request->file("thumbnail")) {
-            $fileUpload = $request->file("thumbnail")->store("article_thumbnails", "public");
-            $article->thumbnail = $fileUpload;
-        }
+        $article->thumbnail = $imgName;
         $article->author = Auth::user()->name;
         $article->content = $request->get("content");
         $article->category_id = $request->get("category_id");
@@ -112,15 +113,16 @@ class ArticleController extends Controller
             "content" => "required",
         ]);
 
+
+
         $article = Article::findOrFail($id);
         $article->title = $request->get("title");
         $article->slug = \Str::slug($request->get("title"));
-        if ($request->file("thumbnail")) {
-            if ($article->thumbnail && file_exists(storage_path("app/public/" . $article->name))) {
-                \Storage::delete("public/" . $article->thumbnail);
-            }
-            $newthumbnail = $request->file("thumbnail")->store("article_thumbnails", "public");
-            $article->thumbnail = $newthumbnail;
+        if ($request->thumbnail) {
+            $imgName = $request->thumbnail->getClientOriginalName() . '-' . time()
+                . '.' . $request->thumbnail->extension();
+            $request->thumbnail->move(public_path('images/thumbnails/articles'), $imgName);
+            $article->thumbnail = $imgName;
         }
         $article->author = Auth::user()->name;
         $article->content = $request->get("content");

@@ -72,7 +72,8 @@
                 @forelse ($courses as $course)
                     <div class="col-sm-3">
                         <div class="card shadow border-0 mt-3">
-                            <img src="{{ asset('storage/' . $course->thumbnail) }}" class="course-thumbnail" width="100%">
+                            <img src="{{ asset('images/thumbnails/courses/' . $course->thumbnail) }}" class="course-thumbnail"
+                                width="100%">
                             <div class="card-body">
                                 <h6 class="card-title">
                                     <a href="{{ route('kelas/', [$course->slug]) }}" style="text-decoration: none;"
@@ -109,7 +110,7 @@
                 @forelse ($articles as $article)
                     <div class="col-sm-4">
                         <div class="card shadow rounded-lg border-0">
-                            <img src="{{ asset('storage/' . $article->thumbnail) }}" width="100%"
+                            <img src="{{ asset('images/thumbnails/articles/' . $article->thumbnail) }}" width="100%"
                                 style="height: 200px; object-fit: cover; object-position: center;">
                             <div class="card-body">
                                 <a href="{{ route('blog/', [$article->slug]) }}" style="color: black;">

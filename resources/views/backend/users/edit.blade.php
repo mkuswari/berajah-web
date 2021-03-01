@@ -18,8 +18,8 @@
                                 <div class="row no-gutters">
                                     <div class="col-md-4">
                                         @if ($user->avatar)
-                                            <img src="{{ asset('storage/' . $user->avatar) }}" class="card-img"
-                                                style="width: 100%; height: 205px;">
+                                            <img src="{{ asset('images/avatars/users/' . $user->avatar) }}"
+                                                class="card-img" style="width: 100%; height: 205px;">
                                         @else
                                             <img src="https://ui-avatars.com/api/?name={{ $user->name }}&background=random&color=fff"
                                                 class="card-img" style="width: 100%; height: 205px;">
@@ -48,28 +48,28 @@
                                             <label for="name" class="col-sm-2 col-form-label">Nama Lengkap</label>
                                             <div class="col-sm-10">
                                                 <input type="text" class="form-control @error('name')
-                                                    is-invalid
-                                                @enderror" name="name" id="name"
-                                                    placeholder="Nama Lengkap..." value="{{ $user->name }}">
-                                                    @error('name')
+                                                                                                                                                    is-invalid
+                                                                                                @enderror" name="name"
+                                                    id="name" placeholder="Nama Lengkap..." value="{{ $user->name }}">
+                                                @error('name')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
-                                                    @enderror
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="email" class="col-sm-2 col-form-label">E-mail</label>
                                             <div class="col-sm-10">
                                                 <input type="text" class="form-control @error('email')
-                                                    is-invalid
-                                                @enderror" name="email" id="email"
-                                                    placeholder="E-mail..." value="{{ $user->email }}">
-                                                    @error('email')
-                                                        <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
-                                                    @enderror
+                                                                                                                                                    is-invalid
+                                                                                                @enderror" name="email"
+                                                    id="email" placeholder="E-mail..." value="{{ $user->email }}">
+                                                @error('email')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">

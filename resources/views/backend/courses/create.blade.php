@@ -20,7 +20,8 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-8 mx-auto">
-                                    <form action="{{ route('courses.store') }}" method="POST" enctype="multipart/form-data">
+                                    <form action="{{ route('courses.store') }}" method="POST"
+                                        enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group row">
                                             <label for="name" class="col-sm-2 col-form-label">Nama Kelas</label>
@@ -90,13 +91,13 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="form-group row">
+                                        <div class="form-group row d-none">
                                             <label for="type" class="col-sm-2 col-form-label">Tipe Kelas</label>
                                             <div class="col-sm-10">
                                                 <select class="form-control @error('type') is-invalid @enderror" name="type"
                                                     id="type">
-                                                    <option value="" disabled selected>--Pilih Tipe Kelas--</option>
-                                                    <option value="Free">Free</option>
+                                                    <option value="" disabled>--Pilih Tipe Kelas--</option>
+                                                    <option value="Free" selected>Free</option>
                                                     <option value="Premium">Premium</option>
                                                 </select>
                                                 @error('type')
@@ -126,7 +127,8 @@
                                                 <select class="form-control select2" name="category_id" id="category_id">
                                                     <option value="" disabled selected>--Pilih Kategori--</option>
                                                     @foreach ($categories as $category)
-                                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                        <option value="{{ $category->id }}">{{ $category->name }}
+                                                        </option>
                                                     @endforeach
                                                 </select>
                                                 @error('category_id')

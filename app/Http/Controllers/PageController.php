@@ -78,4 +78,9 @@ class PageController extends Controller
         $articles = Article::all();
         return view("pages.blog_detail", compact("article", "articles"));
     }
+
+    public function aboutUs()
+    {
+        return view("pages.about");
+    }
 }

@@ -21,8 +21,8 @@
                             <div class="card mb-3">
                                 <div class="row no-gutters">
                                     <div class="col-md-4">
-                                        <img src="{{ asset('storage/' . $course->thumbnail) }}" class="card-img"
-                                            style="width: 100%; height: 205px;">
+                                        <img src="{{ asset('images/thumbnails/courses/' . $course->thumbnail) }}"
+                                            class="card-img" style="width: 100%; height: 205px;">
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
@@ -80,7 +80,7 @@
                                             <label for="description" class="col-sm-2 col-form-label">Deskripsi Kelas</label>
                                             <div class="col-sm-10">
                                                 <textarea class="summernote-simple" name="description"
-                                                    id="description">{!!  $course->description !!}</textarea>
+                                                    id="description">{!! $course->description !!}</textarea>
                                                 @error('description')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -104,7 +104,8 @@
                                                         {{ $course->level == 'Intermediate' ? 'selected' : '' }}>
                                                         Intermediate</option>
                                                     <option value="Expert"
-                                                        {{ $course->level == 'Expert' ? 'selected' : '' }}>Expert</option>
+                                                        {{ $course->level == 'Expert' ? 'selected' : '' }}>Expert
+                                                    </option>
                                                 </select>
                                                 @error('level')
                                                     <span class="invalid-feedback" role="alert">
@@ -113,7 +114,7 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="form-group row">
+                                        <div class="form-group row d-none">
                                             <label for="type" class="col-sm-2 col-form-label">Tipe Kelas</label>
                                             <div class="col-sm-10">
                                                 <select class="form-control @error('type') is-invalid @enderror" name="type"
@@ -122,7 +123,8 @@
                                                     <option value="Free" {{ $course->type == 'Free' ? 'selected' : '' }}>
                                                         Free</option>
                                                     <option value="Premium"
-                                                        {{ $course->type == 'Premium' ? 'selected' : '' }}>Premium</option>
+                                                        {{ $course->type == 'Premium' ? 'selected' : '' }}>Premium
+                                                    </option>
                                                 </select>
                                                 @error('type')
                                                     <span class="invalid-feedback" role="alert">
@@ -206,7 +208,8 @@
                                             <div class="col-sm-2"></div>
                                             <div class="col-sm-10">
                                                 <button type="submit" class="btn btn-primary">Update Kelas</button>
-                                                <a href="{{ route('courses.index') }}" class="btn btn-warning">Batalkan</a>
+                                                <a href="{{ route('courses.index') }}"
+                                                    class="btn btn-warning">Batalkan</a>
                                             </div>
                                         </div>
                                     </form>

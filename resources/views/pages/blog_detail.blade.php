@@ -20,7 +20,7 @@
                                 {{ date('d F, Y', strtotime($article->created_at)) }}
                             </p>
                             <hr>
-                            <img src="{{ asset('storage/' . $article->thumbnail) }}" width="100%"
+                            <img src="{{ asset('images/thumbnails/articles/' . $article->thumbnail) }}" width="100%"
                                 style="height: 400px; object-fit: cover; object-position: center;" class="rounded">
                             <div class="article-content py-4">
                                 {!! $article->content !!}

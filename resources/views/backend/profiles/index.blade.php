@@ -18,8 +18,8 @@
                                 <div class="row no-gutters">
                                     <div class="col-md-4">
                                         @if (Auth::user()->avatar)
-                                            <img src="{{ asset('storage/' . Auth::user()->avatar) }}" class="card-img"
-                                                style="width: 100%; height: 205px;">
+                                            <img src="{{ asset('images/avatars/users/' . Auth::user()->avatar) }}"
+                                                class="card-img" style="width: 100%; height: 205px;">
                                         @else
                                             <img src="https://ui-avatars.com/api/?name={{ Auth::user()->name }}&background=random&color=fff"
                                                 class="card-img" style="width: 100%; height: 205px;">

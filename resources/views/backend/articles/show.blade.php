@@ -26,7 +26,7 @@
                                             <i class="fas fa-clock"></i>
                                             <span>{{ date('d F Y', strtotime($article->created_at)) }}</span>
                                         </p>
-                                        <img src="{{ asset('storage/' . $article->thumbnail) }}"
+                                        <img src="{{ asset('images/thumbnails/articles/' . $article->thumbnail) }}"
                                             style="width: 100%; height: 500px; object-fit: cover; object-position: center;">
                                         <div class="content mt-3">
                                             {!! $article->content !!}

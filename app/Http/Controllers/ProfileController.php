@@ -27,16 +27,17 @@ class ProfileController extends Controller
             "email" => "email"
         ]);
 
+
+
         $user = User::findOrFail(Auth::user()->id);
         $user->name = $request->get("name");
         $user->email = $request->get("email");
         $user->phone = $request->get("phone");
-        if ($request->file("avatar")) {
-            if ($user->avatar && file_exists(storage_path("app/public/" . $user->avatar))) {
-                \Storage::delete("public/" . $user->avatar);
-            }
-            $fileUpload = $request->file("avatar")->store("avatars", "public");
-            $user->avatar = $fileUpload;
+        if ($request->avatar) {
+            $imgName = $request->avatar->getClientOriginalName() . '-' . time()
+                . '.' . $request->avatar->extension();
+            $request->avatar->move(public_path('images/avatars/users'), $imgName);
+            $user->avatar = $imgName;
         }
         $user->save();
         return redirect()->route("profile-saya")->with("success", "Profile Has Been Updated Successfully");

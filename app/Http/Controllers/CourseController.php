@@ -62,13 +62,14 @@ class CourseController extends Controller
             "instructor_id" => "required"
         ]);
 
+        $imgName = $request->thumbnail->getClientOriginalName() . '-' . time()
+            . '.' . $request->thumbnail->extension();
+        $request->thumbnail->move(public_path('images/thumbnails/courses'), $imgName);
+
         $course = new Course;
         $course->name = $request->get("name");
         $course->slug = \Str::slug($request->get("name"));
-        if ($request->file("thumbnail")) {
-            $fileUpload = $request->file("thumbnail")->store("course_thumbnails", "public");
-            $course->thumbnail = $fileUpload;
-        }
+        $course->thumbnail = $imgName;
         preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $request->get("trailer_url"), $match);
         $youtubeVideoId = $match[1];
         $course->trailer_url = $youtubeVideoId;
@@ -131,15 +132,16 @@ class CourseController extends Controller
             "instructor_id" => "required"
         ]);
 
+
+
         $course = Course::findOrFail($id);
         $course->name = $request->get("name");
         $course->slug = \Str::slug($request->get("name"));
-        if ($request->file("thumbnail")) {
-            if ($course->thumbnail && file_exists(storage_path("app/public/" . $course->name))) {
-                \Storage::delete("public/" . $course->thumbnail);
-            }
-            $newThumbnail = $request->file("image")->store("course_thumbnails", "public");
-            $course->image = $newThumbnail;
+        if ($request->thumbnail) {
+            $imgName = $request->thumbnail->getClientOriginalName() . '-' . time()
+                . '.' . $request->thumbnail->extension();
+            $request->thumbnail->move(public_path('images/thumbnails/categories'), $imgName);
+            $course->thumbnail = $imgName;
         }
         preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $request->get("trailer_url"), $match);
         $youtubeVideoId = $match[1];
